@@ -106,12 +106,18 @@ based policy allows the s3:ListBucket action
 * [La commande à réaliser pour effecuter l'action demandée]
 
 ```bash
-//TODO
+aws s3api put-object --bucket devopsteam04-i346 --key image_test.png --body "C:/Users/pu22amq/Desktop/circuit_lampe_allume.png" --profile devopsteam04-i346
 ```
 
 ```
 [OUTPUT]
-//TODO
+{
+    "ETag": "\"5a400ef7bc943f344c8f427d2f91cd6d\"",
+    "ChecksumCRC64NVME": "qbzWXcW1hmg=",
+    "ChecksumType": "FULL_OBJECT",
+    "ServerSideEncryption": "AES256"
+}
+
 ```
 
 ### Uploader un répertoire
@@ -134,12 +140,14 @@ based policy allows the s3:ListBucket action
 * [La commande à réaliser pour effecuter l'action demandée]
 
 ```bash
-//TODO
+aws ecr create-repository --repository-name repo_test/test1 --profile devopsteam04-i346 --region eu-central-1
 ```
 
 ```
 [OUTPUT]
-//TODO
+An error occurred (AccessDeniedException) when calling the CreateRepository operation: User: arn:aws:iam::709024702237:user/devopsteam04-i346 is not aut
+horized to perform: ecr:CreateRepository on resource: arn:aws:ecr:eu-central-1:709024702237:repository/repo_test/test1 because no identity-based policy
+allows the ecr:CreateRepository action
 ```
 
 ### Lister le contenu d'un "repertoire"
