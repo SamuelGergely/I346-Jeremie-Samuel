@@ -100,7 +100,7 @@ An error occurred (AccessDenied) when calling the ListObjectsV2 operation: User:
  arn:aws:iam::709024702237:user/devopsteam04-i346 is not authorized to perform:
 s3:ListBucket on resource: "arn:aws:s3:::devopsteam04-i346" because no identity-
 based policy allows the s3:ListBucket action
-// résultat normale, nous n'avons pas les autorisations pour lister l'intérieur d'un bucket
+// résultat normal, nous n'avons pas les autorisations pour lister l'intérieur d'un bucket
 ```
 
 * [La commande à réaliser pour effecuter l'action demandée]
@@ -207,23 +207,40 @@ based policy allows the s3:ListBucket action
 * [Vérifier l'état du bucket avant votre commande]
 
 ```bash
-//TODO
+aws s3api get-object --bucket devopsteam04-i346 --key image_test.png image_test.png --profile devopsteam04-i346
 ```
 
 ```
 [OUTPUT]
-//TODO
+{
+    "AcceptRanges": "bytes",
+    "LastModified": "2025-02-05T11:21:08+00:00",
+    "ContentLength": 49781,
+    "ETag": "\"5a400ef7bc943f344c8f427d2f91cd6d\"",
+    "ChecksumCRC64NVME": "qbzWXcW1hmg=",
+    "ChecksumType": "FULL_OBJECT",
+    "ContentType": "binary/octet-stream",
+    "ServerSideEncryption": "AES256",
+    "Metadata": {}
+}
+
 ```
 
 * [La commande à réaliser pour effecuter l'action demandée]
 
-```bash
-//TODO
+```bash (Pour une heure seulement par défault)
+aws s3 presign s3://devopsteam04-i346/image_test.png --profile devopsteam04-i346
+```
+```bash (Pour une semaine)
+aws s3 presign s3://devopsteam04-i346/image_test.png --profile devopsteam04-i346 \
+    --expires-in 604800
 ```
 
 ```
 [OUTPUT]
-//TODO
+$ aws s3 presign s3://devopsteam04-i346/image_test.png --profile devopsteam04-i346
+https://devopsteam04-i346.s3.amazonaws.com/image_test.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIA2KFJKL4OTZDZNJM5%2F20250205%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20250205T111539Z&X-Amz-Expires=3600&X-Amz-SignedHeaders=host&X-Amz-Signature=8b279825f0e7eae69106b642dc25fd1108d7ba7ec9ecd4629adb2513111afe17
+
 ```
 
 ### Supprimer un fichier
@@ -235,23 +252,33 @@ based policy allows the s3:ListBucket action
 * [Vérifier l'état du bucket avant votre commande]
 
 ```bash
-//TODO
+aws s3api get-object --bucket devopsteam04-i346 --key image_test.png image_test.png --profile devopsteam04-i346
 ```
 
 ```
 [OUTPUT]
-//TODO
+{
+    "AcceptRanges": "bytes",
+    "LastModified": "2025-02-05T11:21:08+00:00",
+    "ContentLength": 49781,
+    "ETag": "\"5a400ef7bc943f344c8f427d2f91cd6d\"",
+    "ChecksumCRC64NVME": "qbzWXcW1hmg=",
+    "ChecksumType": "FULL_OBJECT",
+    "ContentType": "binary/octet-stream",
+    "ServerSideEncryption": "AES256",
+    "Metadata": {}
+}
 ```
 
 * [La commande à réaliser pour effecuter l'action demandée]
 
 ```bash
-//TODO
+aws s3 rm s3://devopsteam04-i346/image_test.png --profile devopsteam04-i346
 ```
 
 ```
 [OUTPUT]
-//TODO
+delete: s3://devopsteam04-i346/image_test.png
 ```
 
 ### Vider un "repertoire"
@@ -377,7 +404,7 @@ Consigne : Reprenez la "policy" et documenter chaque ligne
                 "s3:DeleteObject" // action no 3
             ],
           // indique sur quelle(s) ressources les autorisations sont appliquées
-            "Resource": "arn:aws:s3:::devopsteam<XX>-i346/*" //XX -> devopsteam number
+            "Resource": "arn:aws:s3:::devopsteam<04>-i346/*" //XX -> devopsteam number
         }
     ]
 }
