@@ -10,7 +10,7 @@
 * [Gestion des profiles](https://docs.aws.amazon.com/cli/v1/userguide/cli-configure-files.html#cli-configure-files-format-profile)
   * Vous devez créer un profile du nom de votre équipe et l'utiliser pour toute les futures commandes
   ```
-  aws s3 <la commande> --profile devopsteam<xx>
+  aws s3 <la commande> --profile devopsteam04
   ```
 
 ## IAM Policy
@@ -33,7 +33,7 @@ Voici la "policy" qui vous a été attribuée:
                 "s3:GetObject",
                 "s3:DeleteObject",
             ],
-            "Resource": "arn:aws:s3:::devopsteam<XX>-i346/*" //XX -> devopsteam number
+            "Resource": "arn:aws:s3:::devopsteam04-i346/*" //XX -> devopsteam number
         }
     ]
 }
@@ -91,12 +91,16 @@ make_bucket: devopsteam99-i346
 * [Vérifier l'état du bucket avant votre commande]
 
 ```bash
-//TODO
+aws s3 ls s3://devopsteam04-i346 --profile devopsteam04-i346
 ```
 
 ```
 [OUTPUT]
-//TODO
+An error occurred (AccessDenied) when calling the ListObjectsV2 operation: User:
+ arn:aws:iam::709024702237:user/devopsteam04-i346 is not authorized to perform:
+s3:ListBucket on resource: "arn:aws:s3:::devopsteam04-i346" because no identity-
+based policy allows the s3:ListBucket action
+// résultat normale, nous n'avons pas les autorisations pour lister l'intérieur d'un bucket
 ```
 
 * [La commande à réaliser pour effecuter l'action demandée]
@@ -355,3 +359,26 @@ Consigne : répondre en utilisant des sources officielles et en vous appuyant de
 ### Reprenez l'IAM "Policy" et expliquer ce que vous pouvez en déduire au niveau des droits qui vous sont alloués
 
 Consigne : Reprenez la "policy" et documenter chaque ligne
+
+```json
+{
+    "Version": "2012-10-17", // déclare la version
+    "Statement": [ // liste de rêgles d'acces au bucket
+        {
+            "Effect": "Allow", // autorise l'utilisateur à effectuer le/les action(s) suivante(s)
+            "Action": "s3:ListAllMyBuckets", // action(s) autorisée(s)
+            "Resource": "arn:aws:s3:::*" // indique sur quelle(s) ressources les autorisations sont appliquées
+        },
+        {
+            "Effect": "Allow", // autorise l'utilisateur à effectuer le/les action(s) suivante(s)
+            "Action": [ // action(s) autorisée(s)
+                "s3:PutObject", // action no 1
+                "s3:GetObject", // action no 2
+                "s3:DeleteObject" // action no 3
+            ],
+          // indique sur quelle(s) ressources les autorisations sont appliquées
+            "Resource": "arn:aws:s3:::devopsteam<XX>-i346/*" //XX -> devopsteam number
+        }
+    ]
+}
+```
