@@ -129,7 +129,7 @@ aws s3api put-object --bucket devopsteam04-i346 --key image_test.png --body "C:/
 * [Vérifier l'état du bucket avant votre commande]
 
 ```bash
-//TODO
+aws s3api get-object --bucket devopsteam04-i346 --key image_test.png image_test.png --profile devopsteam04-i346
 ```
 
 ```
@@ -170,12 +170,14 @@ allows the ecr:CreateRepository action
 * [La commande à réaliser pour effecuter l'action demandée]
 
 ```bash
-//TODO
+aws s3api list-objects-v2 --bucket devopsteam04-i346 --prefix repo_test/test1 --profile devopsteam04-i346
 ```
 
 ```
 [OUTPUT]
-//TODO
+An error occurred (AccessDenied) when calling the ListObjectsV2 operation: User: arn:aws:iam::709024702237:user/devopsteam04-i
+346 is not authorized to perform: s3:ListBucket on resource: "arn:aws:s3:::devopsteam04-i346" because no identity-based policy
+ allows the s3:ListBucket action
 ```
 
 ### Synchroniser un répertoire local de sa machine avec un bucket
@@ -198,12 +200,14 @@ allows the ecr:CreateRepository action
 * [La commande à réaliser pour effecuter l'action demandée]
 
 ```bash
-//TODO
+aws s3 sync C:/Users/pu22amq/Desktop/image_proj_front s3://devopsteam04-i346/ --profile devopsteam04-i346
 ```
 
 ```
 [OUTPUT]
-//TODO
+fatal error: An error occurred (AccessDenied) when calling the ListObjectsV2 operation: User: arn:aws:iam::709024702237:user/d
+evopsteam04-i346 is not authorized to perform: s3:ListBucket on resource: "arn:aws:s3:::devopsteam04-i346" because no identity
+-based policy allows the s3:ListBucket action
 ```
 
 ### Publier un fichier présent sur un bucket en générant un lien (url) temporaire
@@ -309,12 +313,14 @@ delete: s3://devopsteam04-i346/image_test.png
 * [La commande à réaliser pour effecuter l'action demandée]
 
 ```bash
-//TODO
+aws s3 rm s3://devopsteam04-i346/repo_test/test1 --recursive --profile devopsteam04-i346
 ```
 
 ```
 [OUTPUT]
-//TODO
+fatal error: An error occurred (AccessDenied) when calling the ListObjectsV2 operation: User: arn:aws:iam::709024702237:user/d
+evopsteam04-i346 is not authorized to perform: s3:ListBucket on resource: "arn:aws:s3:::devopsteam04-i346" because no identity
+-based policy allows the s3:ListBucket action
 ```
 
 ### Extraire uniquement les metadonnées d'un objet
@@ -337,12 +343,20 @@ delete: s3://devopsteam04-i346/image_test.png
 * [La commande à réaliser pour effecuter l'action demandée]
 
 ```bash
-//TODO
+aws s3api head-object --bucket devopsteam04-i346 --key image_test.png --profile devopsteam04-i346
 ```
 
 ```
 [OUTPUT]
-//TODO
+{
+    "AcceptRanges": "bytes",
+    "LastModified": "2025-02-05T11:21:08+00:00",
+    "ContentLength": 49781,
+    "ETag": "\"5a400ef7bc943f344c8f427d2f91cd6d\"",
+    "ContentType": "binary/octet-stream",
+    "ServerSideEncryption": "AES256",
+    "Metadata": {}
+}
 ```
 
 ### Vider le bucket
@@ -365,12 +379,13 @@ delete: s3://devopsteam04-i346/image_test.png
 * [La commande à réaliser pour effecuter l'action demandée]
 
 ```bash
-//TODO
+aws s3 rm s3://devopsteam04-i346/image_test.png --profile devopsteam04-i346
 ```
 
 ```
 [OUTPUT]
-//TODO
+delete: s3://devopsteam04-i346/image_test.png
+(impossible de supprimer automatiquement tout le contenu du bucket d'un seul coup, manque de l'autorisation ListObjectV2)
 ```
 
 ---
@@ -401,15 +416,15 @@ Consigne : Reprenez la "policy" et documenter chaque ligne
     "Statement": [ // liste de rêgles d'acces au bucket
         {
             "Effect": "Allow", // autorise l'utilisateur à effectuer le/les action(s) suivante(s)
-            "Action": "s3:ListAllMyBuckets", // action(s) autorisée(s)
+            "Action": "s3:ListAllMyBuckets", // action(s) autorisée(s) (lister tout les buckets)
             "Resource": "arn:aws:s3:::*" // indique sur quelle(s) ressources les autorisations sont appliquées
         },
         {
             "Effect": "Allow", // autorise l'utilisateur à effectuer le/les action(s) suivante(s)
             "Action": [ // action(s) autorisée(s)
-                "s3:PutObject", // action no 1
-                "s3:GetObject", // action no 2
-                "s3:DeleteObject" // action no 3
+                "s3:PutObject", // action no 1 (ajouter un objet sur le bucket)
+                "s3:GetObject", // action no 2 (obtenir un objet sur le bucket)
+                "s3:DeleteObject" // action no 3 (supprimer un objet sur le bucket)
             ],
           // indique sur quelle(s) ressources les autorisations sont appliquées
             "Resource": "arn:aws:s3:::devopsteam<04>-i346/*" //XX -> devopsteam number
