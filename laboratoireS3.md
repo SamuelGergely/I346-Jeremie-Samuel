@@ -435,9 +435,10 @@ Car le nom est unique, est si il est supprimé quelqu'un pourrait peut-être dé
 
 ### Quelle est la différence entre un Bucket S3 et Glacier ?
 
-* [What is Amazon Glacier?](https://www.techtarget.com/searchaws/definition/Glacier-Amazon-Glacier)
+* [Understanding S3 Glacier storage classes for long-term data storage](https://docs.aws.amazon.com/AmazonS3/latest/userguide/glacier-storage-classes.html)
 
 Glacier est plutôt une option prévue pour archiver des document dont le besoin d'accès est rare, mais probablement requis à un moment.
+Glacier possède plusieurs modèles selont les besoins (Rapides, Moyens, et Lents) dont le prix varie en fonction de la vitesse.
 Alors que le bucket S3 est dynamique et rapide, Glacier serait incapable de stocker un stie web statique par exemple.
 
 ### Reprenez l'IAM "Policy" et expliquer ce que vous pouvez en déduire au niveau des droits qui vous sont alloués
