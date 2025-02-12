@@ -429,9 +429,9 @@ Consigne : répondre en utilisant des sources officielles et en vous appuyant de
 
 ### Pourquoi est-il déconseillé de détruire un bucket S3 selon AWS ?
 
-* [Sources AWS]
+* [Deleting a bucket](https://docs.aws.amazon.com/AmazonS3/latest/userguide/delete-bucket.html)
 
-[Votre réponse]
+Car le nom est unique, est si il est supprimé quelqu'un pourrait peut-être décider de l'apporprier.
 
 ### Quelle est la différence entre un Bucket S3 et Glacier ?
 
