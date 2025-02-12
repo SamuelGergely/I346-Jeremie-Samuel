@@ -52,7 +52,8 @@ Attention:
 * Le bucket existe-t-il ?
 
 ```bash
-aws s3 ls --profile devopsteam99-i346 | grep "devopsteam*"
+aws s3 ls \
+ --profile devopsteam99-i346 | grep "devopsteam*"
 ```
 
 ```
@@ -73,7 +74,9 @@ aws s3 ls --profile devopsteam99-i346 | grep "devopsteam*"
 * Créer un bucket (via un compte admin)
 
 ```bash
-aws s3 mb s3://devopsteam99-i346 --region eu-central-1 --profile s3-admin
+aws s3 mb s3://devopsteam99-i346 \
+ --region eu-central-1 \
+ --profile s3-admin
 ```
 
 ```
@@ -91,7 +94,8 @@ make_bucket: devopsteam99-i346
 * [Vérifier l'état du bucket avant votre commande]
 
 ```bash
-aws s3 ls s3://devopsteam04-i346 --profile devopsteam04-i346
+aws s3 ls s3://devopsteam04-i346 \
+ --profile devopsteam04-i346
 ```
 
 ```
@@ -106,7 +110,11 @@ based policy allows the s3:ListBucket action
 * [La commande à réaliser pour effecuter l'action demandée]
 
 ```bash
-aws s3api put-object --bucket devopsteam04-i346 --key image_test.png --body "C:/Users/pu22amq/Desktop/circuit_lampe_allume.png" --profile devopsteam04-i346
+aws s3api put-object \
+ --bucket devopsteam04-i346 \
+ --key image_test.png \
+ --body "C:/Users/pu22amq/Desktop/circuit_lampe_allume.png" \
+ --profile devopsteam04-i346
 ```
 
 ```
@@ -129,7 +137,10 @@ aws s3api put-object --bucket devopsteam04-i346 --key image_test.png --body "C:/
 * [Vérifier l'état du bucket avant votre commande]
 
 ```bash
-aws s3api get-object --bucket devopsteam04-i346 --key image_test.png image_test.png --profile devopsteam04-i346
+aws s3api get-object \
+ --bucket devopsteam04-i346 \
+ --key image_test.png image_test.png \
+ --profile devopsteam04-i346
 ```
 
 ```
@@ -140,7 +151,10 @@ aws s3api get-object --bucket devopsteam04-i346 --key image_test.png image_test.
 * [La commande à réaliser pour effecuter l'action demandée]
 
 ```bash
-aws ecr create-repository --repository-name repo_test/test1 --profile devopsteam04-i346 --region eu-central-1
+aws ecr create-repository \
+ --repository-name repo_test/test1 \
+ --profile devopsteam04-i346 \ 
+ --region eu-central-1
 ```
 
 ```
@@ -170,7 +184,10 @@ allows the ecr:CreateRepository action
 * [La commande à réaliser pour effecuter l'action demandée]
 
 ```bash
-aws s3api list-objects-v2 --bucket devopsteam04-i346 --prefix repo_test/test1 --profile devopsteam04-i346
+aws s3api list-objects-v2 \
+ --bucket devopsteam04-i346 \
+ --prefix repo_test/test1 \
+ --profile devopsteam04-i346
 ```
 
 ```
@@ -200,7 +217,8 @@ An error occurred (AccessDenied) when calling the ListObjectsV2 operation: User:
 * [La commande à réaliser pour effecuter l'action demandée]
 
 ```bash
-aws s3 sync C:/Users/pu22amq/Desktop/image_proj_front s3://devopsteam04-i346/ --profile devopsteam04-i346
+aws s3 sync C:/Users/pu22amq/Desktop/image_proj_front s3://devopsteam04-i346/ \
+ --profile devopsteam04-i346
 ```
 
 ```
@@ -219,7 +237,10 @@ evopsteam04-i346 is not authorized to perform: s3:ListBucket on resource: "arn:a
 * [Vérifier l'état du bucket avant votre commande]
 
 ```bash
-aws s3api get-object --bucket devopsteam04-i346 --key image_test.png image_test.png --profile devopsteam04-i346
+aws s3api get-object \
+ --bucket devopsteam04-i346 \
+ --key image_test.png image_test.png \
+ --profile devopsteam04-i346
 ```
 
 ```
@@ -241,11 +262,13 @@ aws s3api get-object --bucket devopsteam04-i346 --key image_test.png image_test.
 * [La commande à réaliser pour effecuter l'action demandée]
 
 ```bash (Pour une heure seulement par défault)
-aws s3 presign s3://devopsteam04-i346/image_test.png --profile devopsteam04-i346
+aws s3 presign s3://devopsteam04-i346/image_test.png \
+ --profile devopsteam04-i346
 ```
 ```bash (Pour une semaine)
-aws s3 presign s3://devopsteam04-i346/image_test.png --profile devopsteam04-i346 \
-    --expires-in 604800
+aws s3 presign s3://devopsteam04-i346/image_test.png \
+ --profile devopsteam04-i346 \
+ --expires-in 604800
 ```
 
 ```
@@ -264,7 +287,10 @@ https://devopsteam04-i346.s3.amazonaws.com/image_test.png?X-Amz-Algorithm=AWS4-H
 * [Vérifier l'état du bucket avant votre commande]
 
 ```bash
-aws s3api get-object --bucket devopsteam04-i346 --key image_test.png image_test.png --profile devopsteam04-i346
+aws s3api get-object \
+ --bucket devopsteam04-i346 \
+ --key image_test.png image_test.png \
+ --profile devopsteam04-i346
 ```
 
 ```
@@ -285,7 +311,8 @@ aws s3api get-object --bucket devopsteam04-i346 --key image_test.png image_test.
 * [La commande à réaliser pour effecuter l'action demandée]
 
 ```bash
-aws s3 rm s3://devopsteam04-i346/image_test.png --profile devopsteam04-i346
+aws s3 rm s3://devopsteam04-i346/image_test.png \
+ --profile devopsteam04-i346
 ```
 
 ```
@@ -313,7 +340,9 @@ delete: s3://devopsteam04-i346/image_test.png
 * [La commande à réaliser pour effecuter l'action demandée]
 
 ```bash
-aws s3 rm s3://devopsteam04-i346/repo_test/test1 --recursive --profile devopsteam04-i346
+aws s3 rm s3://devopsteam04-i346/repo_test/test1 \
+ --recursive \
+ --profile devopsteam04-i346
 ```
 
 ```
@@ -343,7 +372,10 @@ evopsteam04-i346 is not authorized to perform: s3:ListBucket on resource: "arn:a
 * [La commande à réaliser pour effecuter l'action demandée]
 
 ```bash
-aws s3api head-object --bucket devopsteam04-i346 --key image_test.png --profile devopsteam04-i346
+aws s3api head-object \
+ --bucket devopsteam04-i346 \
+ --key image_test.png \
+ --profile devopsteam04-i346
 ```
 
 ```
@@ -379,7 +411,8 @@ aws s3api head-object --bucket devopsteam04-i346 --key image_test.png --profile 
 * [La commande à réaliser pour effecuter l'action demandée]
 
 ```bash
-aws s3 rm s3://devopsteam04-i346/image_test.png --profile devopsteam04-i346
+aws s3 rm s3://devopsteam04-i346/image_test.png \
+ --profile devopsteam04-i346
 ```
 
 ```
