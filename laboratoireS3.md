@@ -151,17 +151,15 @@ aws s3api get-object \
 * [La commande à réaliser pour effecuter l'action demandée]
 
 ```bash
-aws ecr create-repository \
- --repository-name repo_test/test1 \
- --profile devopsteam04-i346 \ 
- --region eu-central-1
+aws s3 cp \
+ .\Repository s3://devopsteam04-i346 \
+ --profile devopsteam04-i346 \
+ --recursive
 ```
 
 ```
 [OUTPUT]
-An error occurred (AccessDeniedException) when calling the CreateRepository operation: User: arn:aws:iam::709024702237:user/devopsteam04-i346 is not aut
-horized to perform: ecr:CreateRepository on resource: arn:aws:ecr:eu-central-1:709024702237:repository/repo_test/test1 because no identity-based policy
-allows the ecr:CreateRepository action
+
 ```
 
 ### Lister le contenu d'un "repertoire"
