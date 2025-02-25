@@ -1,0 +1,41 @@
+cloud-architecture-diagram
+
+// Define groups and nodes
+//IGW [icon: aws-lambda]
+
+//VPC Subnet [icon: aws-vpc] {
+//  Public {
+//    Server [icon: aws-ec2]
+//    NAT [icon: aws-rds]
+//  }
+
+//  Routes tables [icon: aws-auto-scaling]
+
+//  Private [color: red] {
+//    Worker1 [icon: aws-ec2]
+//    Worker2 [icon: aws-ec2]
+//  }
+//}
+
+// Define connections
+//IGW > Server > NAT
+//Server > Routes tables
+//Routes tables > Worker1, Worker2
+
+IGW [icon: aws-api-gateway]
+
+VPC [icon: aws-vpc] {
+    Public {
+        SSH SRV [icon: aws-ec2]
+        NAT [icon: aws-nat-gateway]
+    }
+
+    RTS TBL [icon:aws-route-table]
+
+    Private [color: red] {
+        Win [icon: aws-cli]
+        Lin [icon: aws-cli]
+    }
+}
+
+IGW > 
