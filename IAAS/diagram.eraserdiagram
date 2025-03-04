@@ -3,7 +3,7 @@ cloud-architecture-diagram
 IGW [icon: aws-api-gateway]
 
 VPC [icon: aws-vpc] {
-    DM7 {
+    DMZ {
         SSH SRV [icon: aws-ec2]
         NAT [icon: aws-nat-gateway]
     }
