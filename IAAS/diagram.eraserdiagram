@@ -16,7 +16,6 @@ VPC [icon: aws-vpc] {
     }
 }
 
-IGW -> SSH SRV
-SSH SRV -> RTS TBL
+IGW -> SSH SRV -> RTS TBL
 RTS TBL <-> Win, Lin
 IGW <- NAT <- RTS TBL
