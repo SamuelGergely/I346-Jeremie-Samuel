@@ -1,0 +1,21 @@
+cloud-architecture-diagram
+
+IGW [icon: aws-api-gateway]
+
+VPC [icon: aws-vpc] {
+    DMZ {
+        SSH SRV [icon: aws-ec2]
+        NAT [icon: aws-nat-gateway]
+    }
+
+    RTS TBL [icon:aws-route-table]
+
+    Private [color: red] {
+        Win [icon: aws-cli]
+        Lin [icon: aws-cli]
+    }
+}
+
+IGW -> SSH SRV -> RTS TBL
+RTS TBL <-> Win, Lin
+IGW <- NAT <- RTS TBL
