@@ -60,11 +60,17 @@
 
 ## Afficher le subnet de l'équipe 4 une région sous forme de tableau
 ```bash
-  aws ec2 describe-subnets --profile devopsteam04-i346 --region eu-central-1 --subnet-ids subnet-02d0c07be4b48422c --output table
+  aws ec2 describe-subnets \
+  --profile devopsteam04-i346 \
+  --region eu-central-1 \
+  --subnet-ids subnet-02d0c07be4b48422c \
+  --output table
 ```
 
 ```
+
 [OUTPUT]
+
 ------------------------------------------------------------------------------------------------------------
 |                                              DescribeSubnets                                             |
 +----------------------------------------------------------------------------------------------------------+
@@ -101,6 +107,5 @@
 |||  Key                       |  Name                                                                   |||
 |||  Value                     |  subnet-10.0.4.0/28                                                     |||
 ||+----------------------------+-------------------------------------------------------------------------+||
-
 
 ```
