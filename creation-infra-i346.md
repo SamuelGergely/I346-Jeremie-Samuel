@@ -14,7 +14,7 @@
   aws ec2 <la commande> --profile devopsteam04
   ```
 
-## Afficher tout les VPCs disponibles dans une région sous forme de tableau
+## Afficher le subnet de l'équipe 4 une région sous forme de tableau
 ```bash
   aws ec2 describe-vpcs \
     --profile devopsteam04-i346 \
@@ -55,10 +55,9 @@
 |||  Key                 |  Name                        |||
 |||  Value               |  vpc-i346                    |||
 ||+----------------------+------------------------------+||
-
 ```
 
-## Afficher le subnet de l'équipe 4 une région sous forme de tableau
+## Afficher tout les VPCs disponibles dans une région sous forme de tableau
 * [Source](https://awscli.amazonaws.com/v2/documentation/api/2.1.21/reference/ec2/describe-subnets.html)
 ```bash
   aws ec2 describe-subnets \
@@ -69,7 +68,6 @@
 ```
 
 ```
-
 [OUTPUT]
 
 ------------------------------------------------------------------------------------------------------------
@@ -108,7 +106,6 @@
 |||  Key                       |  Name                                                                   |||
 |||  Value                     |  subnet-10.0.4.0/28                                                     |||
 ||+----------------------------+-------------------------------------------------------------------------+||
-
 ```
 
 ## Afficher tout les subnets présent sur le VPC
@@ -121,7 +118,6 @@
 ```
 
 ```
-
 [OUTPUT]
 
 ------------------------------------------------------------------------------------------------------------
@@ -523,11 +519,7 @@
 |||  Key                       |  Name                                                                   |||
 |||  Value                     |  subnet-10.0.7.0/28                                                     |||
 ||+----------------------------+-------------------------------------------------------------------------+||
-
-
 ```
-
-
 
 ## List Route Table sur un VPC
 * [Source](https://awscli.amazonaws.com/v2/documentation/api/2.1.30/reference/ec2/describe-route-tables.html)
@@ -678,7 +670,7 @@ t5OgMMHRG6kfVHHaTUFCoGGvqtbtqobHIPMqxtElTkHQSYw0AYBRugkhwbFCQSNpktlAtqC97_hYKjDY
 X2p4I-ziOdVtdcSKsvFkSVLQ0u1Ga0fPQBfEY2tadbIZs6NUDHuvfSAHPKYQFD9-g_I4pIYQ2ZM69x98_523nKMOWhLVetnIocYCOYzwOk9Z2SO1brndfx6obyWuqJBkEPmNJ1FHxWW-SZ-HrDsWE_d2nKlPuHCZYYUQB3UapAPfig90BhdzRFjYSMAfyg3TNvio-YOPlX_Qrav1i0o0Q2bVEXDPEqkSGgM_Lm-vOiH
 ```
 ## Name Route Table
-* [Source]()
+* [Source](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/mq/create-tags.html)
 ```bash
 
 ```
