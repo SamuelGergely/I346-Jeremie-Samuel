@@ -527,3 +527,172 @@
 
 ```
 
+
+
+## List Route Table sur un VPC
+* [Source](https://awscli.amazonaws.com/v2/documentation/api/2.1.30/reference/ec2/describe-route-tables.html)
+* [Query](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/dynamodb/query.html)
+```bash
+  aws ec2 describe-route-tables \
+  --filters "Name=vpc-id,Values=vpc-0a22d771f16ae549d" \ 
+  --profile devopsteam04-i346 \ 
+  --region eu-central-1 \ 
+  --query "RouteTables[*].{RouteTableId:RouteTableId, VpcId:VpcId, Associations:Associations}" \ 
+  --output table
+```
+
+```
+[OUTPUT]
+
+-------------------------------------------------------------
+|                    DescribeRouteTables                    |
++----------------------+------------------------------------+
+|  RouteTableId        |  rtb-0a9293aaf3c30b82c             |
+|  VpcId               |  vpc-0a22d771f16ae549d             |
++----------------------+------------------------------------+
+||                      Associations                       ||
+|+--------------------------+------------------------------+|
+||  Main                    |  True                        ||
+||  RouteTableAssociationId |  rtbassoc-02bc78e3a4b73050c  ||
+||  RouteTableId            |  rtb-0a9293aaf3c30b82c       ||
+|+--------------------------+------------------------------+|
+|||                   AssociationState                    |||
+||+--------------------+----------------------------------+||
+|||  State             |  associated                      |||
+||+--------------------+----------------------------------+||
+|                    DescribeRouteTables                    |
++----------------------+------------------------------------+
+|  RouteTableId        |  rtb-069f0fe8e2ed1ff37             |
+|  VpcId               |  vpc-0a22d771f16ae549d             |
++----------------------+------------------------------------+
+||                      Associations                       ||
+|+--------------------------+------------------------------+|
+||  Main                    |  False                       ||
+||  RouteTableAssociationId |  rtbassoc-06c884888a865c8f0  ||
+||  RouteTableId            |  rtb-069f0fe8e2ed1ff37       ||
+||  SubnetId                |  subnet-007585998051b2c4a    ||
+|+--------------------------+------------------------------+|
+|||                   AssociationState                    |||
+||+--------------------+----------------------------------+||
+|||  State             |  associated                      |||
+||+--------------------+----------------------------------+||
+|                    DescribeRouteTables                    |
++----------------------+------------------------------------+
+|  RouteTableId        |  rtb-00b3f747f972f123a             |
+|  VpcId               |  vpc-0a22d771f16ae549d             |
++----------------------+------------------------------------+
+|                    DescribeRouteTables                    |
++----------------------+------------------------------------+
+|  RouteTableId        |  rtb-01ebe5717e9104f85             |
+|  VpcId               |  vpc-0a22d771f16ae549d             |
++----------------------+------------------------------------+
+|                    DescribeRouteTables                    |
++----------------------+------------------------------------+
+|  RouteTableId        |  rtb-0e48c9ae2d1e0e4b9             |
+|  VpcId               |  vpc-0a22d771f16ae549d             |
++----------------------+------------------------------------+
+|                    DescribeRouteTables                    |
++----------------------+------------------------------------+
+|  RouteTableId        |  rtb-0b68177540d710b1a             |
+|  VpcId               |  vpc-0a22d771f16ae549d             |
++----------------------+------------------------------------+
+|                    DescribeRouteTables                    |
++----------------------+------------------------------------+
+|  RouteTableId        |  rtb-07668590cdc381b07             |
+|  VpcId               |  vpc-0a22d771f16ae549d             |
++----------------------+------------------------------------+
+|                    DescribeRouteTables                    |
++----------------------+------------------------------------+
+|  RouteTableId        |  rtb-09eea99d8ac647a5f             |
+|  VpcId               |  vpc-0a22d771f16ae549d             |
++----------------------+------------------------------------+
+||                      Associations                       ||
+|+--------------------------+------------------------------+|
+||  Main                    |  False                       ||
+||  RouteTableAssociationId |  rtbassoc-067eb31bcc2d1a3cc  ||
+||  RouteTableId            |  rtb-09eea99d8ac647a5f       ||
+||  SubnetId                |  subnet-092ced6aa04603165    ||
+|+--------------------------+------------------------------+|
+|||                   AssociationState                    |||
+||+--------------------+----------------------------------+||
+|||  State             |  associated                      |||
+||+--------------------+----------------------------------+||
+|                    DescribeRouteTables                    |
++----------------------+------------------------------------+
+|  RouteTableId        |  rtb-03d962d4967937170             |
+|  VpcId               |  vpc-0a22d771f16ae549d             |
++----------------------+------------------------------------+
+|                    DescribeRouteTables                    |
++----------------------+------------------------------------+
+|  RouteTableId        |  rtb-0acd33fa1f46d6e21             |
+|  VpcId               |  vpc-0a22d771f16ae549d             |
++----------------------+------------------------------------+
+|                    DescribeRouteTables                    |
++----------------------+------------------------------------+
+|  RouteTableId        |  rtb-0f49e7901c1b634f0             |
+|  VpcId               |  vpc-0a22d771f16ae549d             |
++----------------------+------------------------------------+
+|                    DescribeRouteTables                    |
++----------------------+------------------------------------+
+|  RouteTableId        |  rtb-0a8386540207d7a99             |
+|  VpcId               |  vpc-0a22d771f16ae549d             |
++----------------------+------------------------------------+
+|                    DescribeRouteTables                    |
++----------------------+------------------------------------+
+|  RouteTableId        |  rtb-005b030aec917782b             |
+|  VpcId               |  vpc-0a22d771f16ae549d             |
++----------------------+------------------------------------+
+|                    DescribeRouteTables                    |
++----------------------+------------------------------------+
+|  RouteTableId        |  rtb-07bf97cd343c65b4c             |
+|  VpcId               |  vpc-0a22d771f16ae549d             |
++----------------------+------------------------------------+
+||                      Associations                       ||
+|+--------------------------+------------------------------+|
+||  Main                    |  False                       ||
+||  RouteTableAssociationId |  rtbassoc-0a41421456eb54417  ||
+||  RouteTableId            |  rtb-07bf97cd343c65b4c       ||
+||  SubnetId                |  subnet-0aaee76144e27a3dd    ||
+|+--------------------------+------------------------------+|
+|||                   AssociationState                    |||
+||+--------------------+----------------------------------+||
+|||  State             |  associated                      |||
+||+--------------------+----------------------------------+||
+```
+
+## Create Route Table
+* [Source](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ec2/create-route-table.html)
+```bash
+  aws ec2 create-route-table \ 
+  --vpc-id vpc-0a22d771f16ae549d \
+  --profile devopsteam04-i346 \ 
+  --region eu-central-1
+```
+
+```
+[OUTPUT]
+
+An error occurred (UnauthorizedOperation) when calling the CreateRouteTable operation: You are not authorized to perform this operation. User: arn:aws:iam::709024702237:user/devopsteam04-i346 is not authorized to perform: ec2:CreateRouteTable on resource: arn:aws:ec2:eu-
+central-1:709024702237:vpc/vpc-0a22d771f16ae549d because no identity-based policy allows the ec2:CreateRouteTable action. Encoded authorization failure message: Hd4HnH3GWsPXfm99sxG6DKQZvaMg_b3U9SkVEBnAnZvkvnlvI0FoZALZO-_dQIhyUf3KmKdLmOLrLUhz6gnABu2GBJQm5gKVrwKF4BPypGZMIZ
+t5OgMMHRG6kfVHHaTUFCoGGvqtbtqobHIPMqxtElTkHQSYw0AYBRugkhwbFCQSNpktlAtqC97_hYKjDY6995s3N-PW_tonaaUe3l4bqtgjNs0ZfztDdXkKAuqKfxmYny8cvph-gzPvmF1pLQS1QdTfPF5WlI9p5e61aatNVEUjkx57UU_VjQQjgfFcR6kKUT8K0dXGujtR-CLSmosTjBY7-y6fbZigxLgs3wgRceN5ySRWPB2dPZg1HuRahr9tbGpACbyO8z9Hxq5v1
+X2p4I-ziOdVtdcSKsvFkSVLQ0u1Ga0fPQBfEY2tadbIZs6NUDHuvfSAHPKYQFD9-g_I4pIYQ2ZM69x98_523nKMOWhLVetnIocYCOYzwOk9Z2SO1brndfx6obyWuqJBkEPmNJ1FHxWW-SZ-HrDsWE_d2nKlPuHCZYYUQB3UapAPfig90BhdzRFjYSMAfyg3TNvio-YOPlX_Qrav1i0o0Q2bVEXDPEqkSGgM_Lm-vOiH
+```
+## Name Route Table
+* [Source]()
+```bash
+
+```
+
+```
+[OUTPUT]
+```
+
+## Delete Route Table
+* [Source](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ec2/create-route-table.html)
+```bash
+
+```
+
+```
+[OUTPUT]
+```
