@@ -14,7 +14,7 @@
   aws s3 <la commande> --profile devopsteam04
   ```
 
-## Afficher tout les VPCs disponibles dans une reégion sous forme de tableau
+## Afficher tout les VPCs disponibles dans une région sous forme de tableau
 ```bash
   aws ec2 describe-vpcs \
     --profile devopsteam04-i346 \
@@ -55,5 +55,52 @@
 |||  Key                 |  Name                        |||
 |||  Value               |  vpc-i346                    |||
 ||+----------------------+------------------------------+||
+
+```
+
+## Afficher le subnet de l'équipe 4 une région sous forme de tableau
+```bash
+  aws ec2 describe-subnets --profile devopsteam04-i346 --region eu-central-1 --subnet-ids subnet-02d0c07be4b48422c --output table
+```
+
+```
+[OUTPUT]
+------------------------------------------------------------------------------------------------------------
+|                                              DescribeSubnets                                             |
++----------------------------------------------------------------------------------------------------------+
+||                                                 Subnets                                                ||
+|+------------------------------+-------------------------------------------------------------------------+|
+||  AssignIpv6AddressOnCreation |  False                                                                  ||
+||  AvailabilityZone            |  eu-central-1c                                                          ||
+||  AvailabilityZoneId          |  euc1-az1                                                               ||
+||  AvailableIpAddressCount     |  11                                                                     ||
+||  CidrBlock                   |  10.0.4.0/28                                                            ||
+||  DefaultForAz                |  False                                                                  ||
+||  EnableDns64                 |  False                                                                  ||
+||  Ipv6Native                  |  False                                                                  ||
+||  MapCustomerOwnedIpOnLaunch  |  False                                                                  ||
+||  MapPublicIpOnLaunch         |  False                                                                  ||
+||  OwnerId                     |  709024702237                                                           ||
+||  State                       |  available                                                              ||
+||  SubnetArn                   |  arn:aws:ec2:eu-central-1:709024702237:subnet/subnet-02d0c07be4b48422c  ||
+||  SubnetId                    |  subnet-02d0c07be4b48422c                                               ||
+||  VpcId                       |  vpc-0a22d771f16ae549d                                                  ||
+|+------------------------------+-------------------------------------------------------------------------+|
+|||                                        BlockPublicAccessStates                                       |||
+||+---------------------------------------------------------------------------------+--------------------+||
+|||  InternetGatewayBlockMode                                                       |  off               |||
+||+---------------------------------------------------------------------------------+--------------------+||
+|||                                     PrivateDnsNameOptionsOnLaunch                                    |||
+||+-----------------------------------------------------------------------------+------------------------+||
+|||  EnableResourceNameDnsAAAARecord                                            |  False                 |||
+|||  EnableResourceNameDnsARecord                                               |  False                 |||
+|||  HostnameType                                                               |  ip-name               |||
+||+-----------------------------------------------------------------------------+------------------------+||
+|||                                                 Tags                                                 |||
+||+----------------------------+-------------------------------------------------------------------------+||
+|||  Key                       |  Name                                                                   |||
+|||  Value                     |  subnet-10.0.4.0/28                                                     |||
+||+----------------------------+-------------------------------------------------------------------------+||
+
 
 ```
