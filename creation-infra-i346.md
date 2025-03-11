@@ -715,3 +715,18 @@ aws ec2 associate-route-table \
     "AssociationId": "MyAssociation"
 }
 ```
+
+## Create route
+* [Source](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ec2/create-route.html)
+```bash
+aws ec2 create-route \
+--route-table-id <rte-table> \
+--destination-cidr-block 10.0.0.0/16 \
+--gateway-id igw-059306bf876cf19f6
+```
+
+```
+[OUTPUT]
+
+None
+```
