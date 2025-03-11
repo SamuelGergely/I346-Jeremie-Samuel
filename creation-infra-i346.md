@@ -727,6 +727,15 @@ aws ec2 create-route \
 
 ```
 [OUTPUT]
-
 None
+```
+
+## Stop instance
+* [Source](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/lightsail/stop-instance.html)
+```bash
+
+```
+
+```
+[OUTPUT]
 ```
