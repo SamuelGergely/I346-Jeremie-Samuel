@@ -63,7 +63,7 @@
   aws ec2 describe-subnets \
   --profile devopsteam04-i346 \
   --region eu-central-1 \
-  --subnet-ids subnet-02d0c07be4b48422c \
+  --subnet-ids MySubnet \
   --output table
 ```
 
@@ -526,7 +526,7 @@
 * [Query](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/dynamodb/query.html)
 ```bash
   aws ec2 describe-route-tables \
-  --filters "Name=vpc-id,Values=vpc-0a22d771f16ae549d" \ 
+  --filters "Name=vpc-id,Values=MyVpc" \ 
   --profile devopsteam04-i346 \ 
   --region eu-central-1 \ 
   --query "RouteTables[*].{RouteTableId:RouteTableId, VpcId:VpcId, Associations:Associations}" \ 
@@ -656,7 +656,7 @@
 * [Source](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ec2/create-route-table.html)
 ```bash
   aws ec2 create-route-table \ 
-  --vpc-id vpc-0a22d771f16ae549d \
+  --vpc-id MyId \
   --profile devopsteam04-i346 \ 
   --region eu-central-1
 ```
@@ -672,7 +672,11 @@ X2p4I-ziOdVtdcSKsvFkSVLQ0u1Ga0fPQBfEY2tadbIZs6NUDHuvfSAHPKYQFD9-g_I4pIYQ2ZM69x98
 ## Name Route Table
 * [Source](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/mq/create-tags.html)
 ```bash
-
+  aws ec2 create-tags \
+    --resources MyRessource \
+    --tags Key=Name,Value="private-rte-table-devopsteam04-i346" \
+    --profile devopsteam04-i346 \
+    --region eu-central-1
 ```
 
 ```
