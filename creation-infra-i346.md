@@ -739,3 +739,13 @@ None
 ```
 [OUTPUT]
 ```
+
+## delete instance
+* [Source](https://awscli.amazonaws.com/v2/documentation/api/2.14.0/reference/sso-admin/delete-instance.html)
+```bash
+
+```
+
+```
+[OUTPUT]
+```
