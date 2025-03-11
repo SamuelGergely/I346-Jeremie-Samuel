@@ -681,14 +681,37 @@ X2p4I-ziOdVtdcSKsvFkSVLQ0u1Ga0fPQBfEY2tadbIZs6NUDHuvfSAHPKYQFD9-g_I4pIYQ2ZM69x98
 
 ```
 [OUTPUT]
+
+None
 ```
 
 ## Delete Route Table
-* [Source](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ec2/create-route-table.html)
+* [Source](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ec2/delete-route-table.html)
 ```bash
-
+aws ec2 delete-route-table \
+ --route-table-id rtb-22574640 \
+ --profile devopsteam04-i346 \
+ --region eu-central-1
 ```
 
 ```
 [OUTPUT]
+
+None
+```
+
+## Associate Route table to Subnet
+* [Source](https://awscli.amazonaws.com/v2/documentation/api/2.7.25/reference/ec2/associate-route-table.html)
+```bash
+aws ec2 associate-route-table \
+ --route-table-id MyRteTable \
+ --subnet-id MySubnet
+```
+
+```bash
+[Output]
+
+{
+    "AssociationId": "MyAssociation"
+}
 ```
