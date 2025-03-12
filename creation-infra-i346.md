@@ -732,20 +732,120 @@ aws ec2 create-route \
 None
 ```
 
-## Start instance
-* [Source](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ec2/start-instances.html)
+## RouteTable Association DMZ
+* [Source]()
 ```bash
-
+ 
 ```
 
 ```
-[Output]
+[OUTPUT]
 ```
 
-## Stop instance
-* [Source](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/lightsail/stop-instance.html)
+## Create Subnet security group
+* [Source]()
 ```bash
+ 
+```
 
+```
+[OUTPUT]
+```
+
+## Create and upload private key pairs
+* [Source]()
+```bash
+ 
+```
+
+```
+[OUTPUT]
+```
+
+## Deploy instance EC2 Linux
+* [Source]()
+```bash
+ 
+```
+
+```
+[OUTPUT]
+```
+
+## Deploy instance EC2 WIN
+* [Source]()
+```bash
+ 
+```
+
+```
+[OUTPUT]
+```
+
+## Config SSH access (Tunnel to DMZ)
+* [Source]()
+```bash
+ 
+```
+
+```
+[OUTPUT]
+```
+
+## Test EC2 LIN access - INBOUND
+* [Source]()
+```bash
+ 
+```
+
+```
+[OUTPUT]
+```
+
+## Test EC2 WIN access - INBOUND
+* [Source]()
+```bash
+ 
+```
+
+```
+[OUTPUT]
+```
+
+## Start/Stop/Terminate EC2
+* [Source]()
+```bash
+ 
+```
+
+```
+[OUTPUT]
+```
+
+## Test EC2 LIN access - OUTBOUND
+* [Source]()
+```bash
+ 
+```
+
+```
+[OUTPUT]
+```
+
+## Test EC2 WIN access - OUTBOUND
+* [Source]()
+```bash
+ 
+```
+
+```
+[OUTPUT]
+```
+
+## Clean Subnet/Key/Instance/Security Group
+* [Source]()
+```bash
+ 
 ```
 
 ```
