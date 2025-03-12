@@ -728,21 +728,22 @@ aws ec2 create-route \
 
 ```
 [OUTPUT]
+
 None
 ```
 
-## Stop instance
-* [Source](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/lightsail/stop-instance.html)
+## Start instance
+* [Source](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ec2/start-instances.html)
 ```bash
 
 ```
 
 ```
-[OUTPUT]
+[Output]
 ```
 
-## delete instance
-* [Source](https://awscli.amazonaws.com/v2/documentation/api/2.14.0/reference/sso-admin/delete-instance.html)
+## Stop instance
+* [Source](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/lightsail/stop-instance.html)
 ```bash
 
 ```
