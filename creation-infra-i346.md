@@ -16,10 +16,10 @@
 
 ## Afficher le subnet de l'équipe 4 une région sous forme de tableau
 ```bash
-  aws ec2 describe-vpcs \
-    --profile devopsteam04-i346 \
-    --region eu-central-1 \
-    --output table
+aws ec2 describe-vpcs \
+--profile devopsteam04-i346 \
+--region eu-central-1 \
+--output table
 ```
 
 ```
@@ -60,11 +60,11 @@
 ## Afficher tout les VPCs disponibles dans une région sous forme de tableau
 * [Source](https://awscli.amazonaws.com/v2/documentation/api/2.1.21/reference/ec2/describe-subnets.html)
 ```bash
-  aws ec2 describe-subnets \
-  --profile devopsteam04-i346 \
-  --region eu-central-1 \
-  --subnet-ids MySubnet \
-  --output table
+aws ec2 describe-subnets \
+--profile devopsteam04-i346 \
+--region eu-central-1 \
+--subnet-ids subnet-02d0c07be4b48422c \
+--output table
 ```
 
 ```
@@ -525,12 +525,12 @@
 * [Source](https://awscli.amazonaws.com/v2/documentation/api/2.1.30/reference/ec2/describe-route-tables.html)
 * [Query](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/dynamodb/query.html)
 ```bash
-  aws ec2 describe-route-tables \
-  --filters "Name=vpc-id,Values=MyVpc" \ 
-  --profile devopsteam04-i346 \ 
-  --region eu-central-1 \ 
-  --query "RouteTables[*].{RouteTableId:RouteTableId, VpcId:VpcId, Associations:Associations}" \ 
-  --output table
+aws ec2 describe-route-tables \
+--filters "Name=vpc-id,Values=MyVpc" \ 
+--profile devopsteam04-i346 \ 
+--region eu-central-1 \ 
+--query "RouteTables[*].{RouteTableId:RouteTableId, VpcId:VpcId, Associations:Associations}" \ 
+--output table
 ```
 
 ```
@@ -655,10 +655,10 @@
 ## Create Route Table
 * [Source](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ec2/create-route-table.html)
 ```bash
-  aws ec2 create-route-table \ 
-  --vpc-id vpc-0a22d771f16ae549d \
-  --region eu-central-1 \
-  --profile devopsteam04-i346 \ 
+aws ec2 create-route-table \ 
+--vpc-id vpc-0a22d771f16ae549d \
+--region eu-central-1 \
+--profile devopsteam04-i346 
 ```
 
 ```
@@ -673,11 +673,11 @@ X2p4I-ziOdVtdcSKsvFkSVLQ0u1Ga0fPQBfEY2tadbIZs6NUDHuvfSAHPKYQFD9-g_I4pIYQ2ZM69x98
 ## Name Route Table
 * [Source](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/mq/create-tags.html)
 ```bash
-  aws ec2 create-tags \
-    --resources MyRessource \
-    --tags Key=Name,Value="private-rte-table-devopsteam04-i346" \
-    --profile devopsteam04-i346 \
-    --region eu-central-1
+aws ec2 create-tags \
+--resources MyRessource \
+--tags Key=Name,Value="private-rte-table-devopsteam04-i346" \
+--profile devopsteam04-i346 \
+--region eu-central-1
 ```
 
 ```
@@ -690,9 +690,9 @@ None
 * [Source](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ec2/delete-route-table.html)
 ```bash
 aws ec2 delete-route-table \
- --route-table-id rtb-22574640 \
- --profile devopsteam04-i346 \
- --region eu-central-1
+--route-table-id rtb-22574640 \
+--profile devopsteam04-i346 \
+--region eu-central-1
 ```
 
 ```
@@ -705,8 +705,8 @@ None
 * [Source](https://awscli.amazonaws.com/v2/documentation/api/2.7.25/reference/ec2/associate-route-table.html)
 ```bash
 aws ec2 associate-route-table \
- --route-table-id MyRteTable \
- --subnet-id MySubnet
+--route-table-id MyRteTable \
+--subnet-id MySubnet
 ```
 
 ```bash
@@ -722,7 +722,7 @@ aws ec2 associate-route-table \
 ```bash
 aws ec2 create-route \
 --route-table-id <rte-table> \
---destination-cidr-block 10.0.0.0/16 \
+--destination-cidr-block 10.0.4.0/16 \
 --gateway-id igw-059306bf876cf19f6
 ```
 
