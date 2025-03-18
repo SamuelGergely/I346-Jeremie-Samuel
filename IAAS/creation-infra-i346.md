@@ -760,16 +760,6 @@ aws ec2 create-route \
 }
 ```
 
-## RouteTable Association DMZ
-* [Source]()
-```bash
-subnet-007585998051b2c4a
-```
-
-```
-[OUTPUT]
-```
-
 # Deploy Instance
 
 ## Create and upload private key pairs
@@ -809,7 +799,7 @@ aws ec2 create-security-group \
 ---------------------------------------------------------------------------------------------------
 |                                       CreateSecurityGroup                                       |
 +------------------+------------------------------------------------------------------------------+
-|  GroupId         |  sg-0c14ecd95a601269b                                                        |
+|  GroupId         |                                                        |
 |  SecurityGroupArn|  arn:aws:ec2:eu-central-1:709024702237:security-group/sg-0c14ecd95a601269b   |
 +------------------+------------------------------------------------------------------------------+
 ||                                             Tags                                              ||
