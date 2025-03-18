@@ -770,14 +770,26 @@ $ aws ec2 create-route \
 [OUTPUT]
 ```
 
+# Deploy Instance
+
 ## Create and upload private key pairs
-* [Source]()
+* [Source](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ec2/create-key-pair.html)
 ```bash
- 
+aws ec2 create-key-pair \
+--key-name KEY-I346-SUB-DEVOPSTEAM04 \
+--key-type rsa \
+--key-format pem \
+--tag-specifications ResourceType=key-pair,Tags=[{Key=Name,Value=KEY-I346-SUB-DEVOPSTEAM04}] \
+--region eu-central-1 \
+--profile devopsteam04-i346 \
+--output text > KEY-I346-SUB-DEVOPSTEAM04.pem
 ```
 
 ```
 [OUTPUT]
+Parameter validation failed:
+Invalid type for parameter TagSpecifications[0].Tags[0], value: Key=Name, type: <class 'str'>, valid types: <class 'dict'>
+Invalid type for parameter TagSpecifications[1].Tags[0], value: Value=KEY-I346-SUB-DEVOPSTEAM04, type: <class 'str'>, valid types: <class 'dict'>
 ```
 
 ## Create Subnet security group
