@@ -721,8 +721,8 @@ aws ec2 associate-route-table \
 * [Source](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ec2/create-route.html)
 ```bash
 aws ec2 create-route \
---route-table-id <rte-table> \
---destination-cidr-block 10.0.4.0/16 \
+--route-table-id rtb-0e9c1c8c5262297e0 \
+--destination-cidr-block 10.0.4.0/28 \
 --gateway-id igw-059306bf876cf19f6
 ```
 
