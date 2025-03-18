@@ -871,6 +871,135 @@ aws ec2 run-instances \
 
 ```
 [OUTPUT]
+{
+    "ReservationId": "r-0b31ac62fb47ab94b",
+    "OwnerId": "709024702237",
+    "Groups": [],
+    "Instances": [
+        {
+            "Architecture": "x86_64",
+            "BlockDeviceMappings": [],
+            "ClientToken": "3ac9713d-f980-4ee2-a258-3bfa476e5c93",
+            "EbsOptimized": false,
+            "EnaSupport": true,
+            "Hypervisor": "xen",
+            "NetworkInterfaces": [
+                {
+                    "Attachment": {
+                        "AttachTime": "2025-03-18T14:20:51+00:00",
+                        "AttachmentId": "eni-attach-0fd2849882c032899",
+                        "DeleteOnTermination": true,
+                        "DeviceIndex": 0,
+                        "Status": "attaching",
+                        "NetworkCardIndex": 0
+                    },
+                    "Description": "",
+                    "Groups": [
+                        {
+                            "GroupId": "sg-0c14ecd95a601269b",
+                            "GroupName": "secugrp-i346-devopsteam04"
+                        }
+                    ],
+                    "Ipv6Addresses": [],
+                    "MacAddress": "0a:fc:ba:b1:5c:8b",
+                    "NetworkInterfaceId": "eni-0c239dbb745719e1b",
+                    "OwnerId": "709024702237",
+                    "PrivateIpAddress": "10.0.4.13",
+                    "PrivateIpAddresses": [
+                        {
+                            "Primary": true,
+                            "PrivateIpAddress": "10.0.4.13"
+                        }
+                    ],
+                    "SourceDestCheck": true,
+                    "Status": "in-use",
+                    "SubnetId": "subnet-02d0c07be4b48422c",
+                    "VpcId": "vpc-0a22d771f16ae549d",
+                    "InterfaceType": "interface",
+                    "Operator": {
+                        "Managed": false
+                    }
+                }
+            ],
+            "RootDeviceName": "/dev/xvda",
+            "RootDeviceType": "ebs",
+            "SecurityGroups": [
+                {
+                    "GroupId": "sg-0c14ecd95a601269b",
+                    "GroupName": "secugrp-i346-devopsteam04"
+                }
+            ],
+            "SourceDestCheck": true,
+            "StateReason": {
+                "Code": "pending",
+                "Message": "pending"
+            },
+            "Tags": [
+                {
+                    "Key": "Name",
+                    "Value": "EC2-DEVOPSTEAM04-LIN-SRV"
+                }
+            ],
+            "VirtualizationType": "hvm",
+            "CpuOptions": {
+                "CoreCount": 1,
+                "ThreadsPerCore": 1
+            },
+            "CapacityReservationSpecification": {
+                "CapacityReservationPreference": "open"
+            },
+            "MetadataOptions": {
+                "State": "pending",
+                "HttpTokens": "optional",
+                "HttpPutResponseHopLimit": 1,
+                "HttpEndpoint": "enabled",
+                "HttpProtocolIpv6": "disabled",
+                "InstanceMetadataTags": "disabled"
+            },
+            "EnclaveOptions": {
+                "Enabled": false
+            },
+            "PrivateDnsNameOptions": {
+                "HostnameType": "ip-name",
+                "EnableResourceNameDnsARecord": false,
+                "EnableResourceNameDnsAAAARecord": false
+            },
+            "MaintenanceOptions": {
+                "AutoRecovery": "default"
+            },
+            "CurrentInstanceBootMode": "legacy-bios",
+            "Operator": {
+                "Managed": false
+            },
+            "InstanceId": "i-0c15a4e9b1042e12d",
+            "ImageId": "ami-0584590e5f0e97daa",
+            "State": {
+                "Code": 0,
+                "Name": "pending"
+            },
+            "PrivateDnsName": "ip-10-0-4-13.eu-central-1.compute.internal",
+            "PublicDnsName": "",
+            "StateTransitionReason": "",
+            "KeyName": "KEY-I346-SUB-DEVOPSTEAM04",
+            "AmiLaunchIndex": 0,
+            "ProductCodes": [],
+            "InstanceType": "t2.micro",
+            "LaunchTime": "2025-03-18T14:20:51+00:00",
+            "Placement": {
+                "GroupName": "",
+                "Tenancy": "default",
+                "AvailabilityZone": "eu-central-1c"
+            },
+            "Monitoring": {
+                "State": "disabled"
+            },
+            "SubnetId": "subnet-02d0c07be4b48422c",
+            "VpcId": "vpc-0a22d771f16ae549d",
+            "PrivateIpAddress": "10.0.4.13"
+        }
+    ]
+}
+
 ```
 
 ## Deploy instance EC2 WIN
