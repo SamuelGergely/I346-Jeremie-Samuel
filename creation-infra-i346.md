@@ -721,8 +721,10 @@ None
 * [Source](https://awscli.amazonaws.com/v2/documentation/api/2.7.25/reference/ec2/associate-route-table.html)
 ```bash
 aws ec2 associate-route-table \
-  --route-table-id rtb-0e9c1c8c5262297e0 \
-  --subnet-id subnet-02d0c07be4b48422c
+--route-table-id rtb-0e9c1c8c5262297e0 \
+--subnet-id subnet-02d0c07be4b48422c \
+--profile devopsteam04-i346 \
+--region eu-central-1
 ```
 
 ```
