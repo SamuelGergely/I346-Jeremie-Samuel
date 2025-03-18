@@ -14,7 +14,7 @@
   aws ec2 <la commande> --profile devopsteam04
   ```
 
-
+## Schéma de l'infrastructure avec Eraser
 ![alt text](<Capture d’écran 2025-03-18 135348.jpg>)
 
 ## Afficher le subnet de l'équipe 4 une région sous forme de tableau
