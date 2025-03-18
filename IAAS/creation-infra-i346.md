@@ -1152,41 +1152,21 @@ aws ec2 run-instances \
 }
 ```
 
-## Test EC2 LIN access - INBOUND
-* [Source]()
-```bash
- 
-```
-
-```
-[OUTPUT]
-```
-
-## Test EC2 WIN access - INBOUND
-* [Source]()
-```bash
- 
-```
-
-```
-[OUTPUT]
-```
-
 ## Start/Stop/Terminate EC2
 * [Source]()
 ```bash
 Start :
 
 
-Stop :
+#Stop :
 aws ec2 stop-instances \
---instance-ids i-040fccbbbd58e5a36 \
+--instance-ids id \
 --profile devopsteam04-i346 \
 --region eu-central-1
 
-Terminate :
+#Terminate :
 aws ec2 terminate-instances \
---instance-ids i-040fccbbbd58e5a36 \
+--instance-ids id \
 --profile devopsteam04-i346 \
 --region eu-central-1
 ```
@@ -1230,6 +1210,26 @@ Terminate :
         }
     ]
 }
+```
+
+## Test EC2 LIN access - INBOUND
+* [Source]()
+```bash
+ 
+```
+
+```
+[OUTPUT]
+```
+
+## Test EC2 WIN access - INBOUND
+* [Source]()
+```bash
+ 
+```
+
+```
+[OUTPUT]
 ```
 
 ## Test EC2 LIN access - OUTBOUND
