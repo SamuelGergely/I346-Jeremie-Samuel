@@ -770,8 +770,8 @@ $ aws ec2 create-route \
 [OUTPUT]
 ```
 
-## Create Subnet security group
-* [Source](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ec2/create-security-group.html)
+## Create and upload private key pairs
+* [Source]()
 ```bash
  
 ```
@@ -780,8 +780,8 @@ $ aws ec2 create-route \
 [OUTPUT]
 ```
 
-## Create and upload private key pairs
-* [Source]()
+## Create Subnet security group
+* [Source](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ec2/create-security-group.html)
 ```bash
  
 ```
