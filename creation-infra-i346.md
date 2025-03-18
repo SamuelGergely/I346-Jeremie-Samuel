@@ -14,6 +14,9 @@
   aws ec2 <la commande> --profile devopsteam04
   ```
 
+
+![alt text](<Capture d’écran 2025-03-18 135348.jpg>)
+
 ## Afficher le subnet de l'équipe 4 une région sous forme de tableau
 ```bash
 aws ec2 describe-vpcs \
@@ -721,8 +724,10 @@ None
 * [Source](https://awscli.amazonaws.com/v2/documentation/api/2.7.25/reference/ec2/associate-route-table.html)
 ```bash
 aws ec2 associate-route-table \
-  --route-table-id rtb-0e9c1c8c5262297e0 \
-  --subnet-id subnet-02d0c07be4b48422c
+--route-table-id rtb-0e9c1c8c5262297e0 \
+--subnet-id subnet-02d0c07be4b48422c \
+--profile devopsteam04-i346 \
+--region eu-central-1
 ```
 
 ```
@@ -766,7 +771,7 @@ $ aws ec2 create-route \
 ```
 
 ## Create Subnet security group
-* [Source]()
+* [Source](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ec2/create-security-group.html)
 ```bash
  
 ```
