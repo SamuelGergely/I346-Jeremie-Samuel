@@ -866,7 +866,6 @@ aws ec2 run-instances \
 --tag-specifications 'ResourceType=instance,Tags=[{Key=Name,Value=EC2-DEVOPSTEAM04-LIN-SRV}]' \
 --region eu-central-1 \
 --profile devopsteam04-i346
-
 ```
 
 ```
