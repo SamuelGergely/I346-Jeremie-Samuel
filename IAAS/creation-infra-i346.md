@@ -744,16 +744,20 @@ aws ec2 associate-route-table \
 ## Create route
 * [Source](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ec2/create-route.html)
 ```bash
-aws ec2 create-route \
+$ aws ec2 create-route \
 --route-table-id rtb-0e9c1c8c5262297e0 \
---destination-cidr-block 10.0.4.0/28 \
---gateway-id igw-059306bf876cf19f6
+--destination-cidr-block 0.0.0.0/0 \
+--network-interface-id eni-0e382f5c175b09ce2 \
+--profile devopsteam04-i346 \
+--region eu-central-1
 ```
 
 ```
 [OUTPUT]
 
-None
+{
+    "Return": true
+}
 ```
 
 ## RouteTable Association DMZ
