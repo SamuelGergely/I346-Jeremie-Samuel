@@ -114,10 +114,10 @@ aws ec2 describe-subnets \
 ## Afficher tout les subnets présent sur le VPC
 * [Source](https://awscli.amazonaws.com/v2/documentation/api/2.1.21/reference/ec2/describe-subnets.html)
 ```bash
-  aws ec2 describe-subnets \
-  --profile devopsteam04-i346 \
-  --region eu-central-1 \
-  --output table
+aws ec2 describe-subnets \
+--profile devopsteam04-i346 \
+--region eu-central-1 \
+--output table
 ```
 
 ```
@@ -855,28 +855,29 @@ aws ec2 run-instances \
 --subnet-id subnet-02d0c07be4b48422c \
 --tag-specifications 'ResourceType=instance,Tags=[{Key=Name,Value=EC2-DEVOPSTEAM04-LIN-SRV}]' \
 --region eu-central-1 \
---profile devopsteam04-i346
+--profile devopsteam04-i346 \
+--output table
 ```
 
 ```
 [OUTPUT]
 {
-    "ReservationId": "r-0b31ac62fb47ab94b",
+    "ReservationId": "r-0666e4120e12261d5",
     "OwnerId": "709024702237",
     "Groups": [],
     "Instances": [
         {
             "Architecture": "x86_64",
             "BlockDeviceMappings": [],
-            "ClientToken": "3ac9713d-f980-4ee2-a258-3bfa476e5c93",
+            "ClientToken": "3605bcd9-7619-4acd-bfdd-c58a2af4a974",
             "EbsOptimized": false,
             "EnaSupport": true,
             "Hypervisor": "xen",
             "NetworkInterfaces": [
                 {
                     "Attachment": {
-                        "AttachTime": "2025-03-18T14:20:51+00:00",
-                        "AttachmentId": "eni-attach-0fd2849882c032899",
+                        "AttachTime": "2025-03-18T14:27:41+00:00",
+                        "AttachmentId": "eni-attach-0e6b9c0308112e652",
                         "DeleteOnTermination": true,
                         "DeviceIndex": 0,
                         "Status": "attaching",
@@ -890,8 +891,8 @@ aws ec2 run-instances \
                         }
                     ],
                     "Ipv6Addresses": [],
-                    "MacAddress": "0a:fc:ba:b1:5c:8b",
-                    "NetworkInterfaceId": "eni-0c239dbb745719e1b",
+                    "MacAddress": "0a:dc:13:ad:b7:95",
+                    "NetworkInterfaceId": "eni-01d299b5b63bb036c",
                     "OwnerId": "709024702237",
                     "PrivateIpAddress": "10.0.4.13",
                     "PrivateIpAddresses": [
@@ -960,7 +961,7 @@ aws ec2 run-instances \
             "Operator": {
                 "Managed": false
             },
-            "InstanceId": "i-0c15a4e9b1042e12d",
+            "InstanceId": "i-094b7d04792679271",
             "ImageId": "ami-0584590e5f0e97daa",
             "State": {
                 "Code": 0,
@@ -973,7 +974,7 @@ aws ec2 run-instances \
             "AmiLaunchIndex": 0,
             "ProductCodes": [],
             "InstanceType": "t2.micro",
-            "LaunchTime": "2025-03-18T14:20:51+00:00",
+            "LaunchTime": "2025-03-18T14:27:41+00:00",
             "Placement": {
                 "GroupName": "",
                 "Tenancy": "default",
@@ -995,15 +996,15 @@ aws ec2 run-instances \
 * [Source]()
 ```bash
 aws ec2 run-instances \
-  --image-id ami-045114d716addc65d \
-  --instance-type t3.micro \
-  --key-name KEY-I346-SUB-DEVOPSTEAM04 \
-  --security-group-ids sg-0c14ecd95a601269b \
-  --subnet-id subnet-02d0c07be4b48422c \
-  --tag-specifications 'ResourceType=instance,Tags=[{Key=Name,Value=EC2-DEVOPSTEAM04-WIN-SRV}]' \
-  --count 1 \
-  --profile devopsteam04-i346 \
-  --region eu-central-1
+--image-id ami-045114d716addc65d \
+--instance-type t3.micro \
+--key-name KEY-I346-SUB-DEVOPSTEAM04 \
+--security-group-ids sg-0c14ecd95a601269b \
+--subnet-id subnet-02d0c07be4b48422c \
+--tag-specifications 'ResourceType=instance,Tags=[{Key=Name,Value=EC2-DEVOPSTEAM04-WIN-SRV}]' \
+--count 1 \
+--profile devopsteam04-i346 \
+--region eu-central-1
 ```
 
 ```
@@ -1141,41 +1142,21 @@ aws ec2 run-instances \
 }
 ```
 
-## Test EC2 LIN access - INBOUND
-* [Source]()
-```bash
- 
-```
-
-```
-[OUTPUT]
-```
-
-## Test EC2 WIN access - INBOUND
-* [Source]()
-```bash
- 
-```
-
-```
-[OUTPUT]
-```
-
 ## Start/Stop/Terminate EC2
 * [Source]()
 ```bash
 Start :
 
 
-Stop :
+#Stop :
 aws ec2 stop-instances \
---instance-ids i-040fccbbbd58e5a36 \
+--instance-ids id \
 --profile devopsteam04-i346 \
 --region eu-central-1
 
-Terminate :
+#Terminate :
 aws ec2 terminate-instances \
---instance-ids i-040fccbbbd58e5a36 \
+--instance-ids id \
 --profile devopsteam04-i346 \
 --region eu-central-1
 ```
@@ -1219,6 +1200,26 @@ Terminate :
         }
     ]
 }
+```
+
+## Test EC2 LIN access - INBOUND
+* [Source]()
+```bash
+ 
+```
+
+```
+[OUTPUT]
+```
+
+## Test EC2 WIN access - INBOUND
+* [Source]()
+```bash
+ 
+```
+
+```
+[OUTPUT]
 ```
 
 ## Test EC2 LIN access - OUTBOUND
