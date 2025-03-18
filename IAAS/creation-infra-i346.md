@@ -1004,11 +1004,151 @@ aws ec2 run-instances \
 ## Deploy instance EC2 WIN
 * [Source]()
 ```bash
- 
+aws ec2 run-instances \
+  --image-id ami-045114d716addc65d \
+  --instance-type t3.micro \
+  --key-name KEY-I346-SUB-DEVOPSTEAM04 \
+  --security-group-ids sg-0c14ecd95a601269b \
+  --subnet-id subnet-02d0c07be4b48422c \
+  --tag-specifications 'ResourceType=instance,Tags=[{Key=Name,Value=EC2-DEVOPSTEAM04-WIN-SRV}]' \
+  --count 1 \
+  --profile devopsteam04-i346 \
+  --region eu-central-1
 ```
 
 ```
 [OUTPUT]
+
+{
+    "ReservationId": "r-0bf6acfcf308ffc13",
+    "OwnerId": "709024702237",
+    "Groups": [],
+    "Instances": [
+        {
+            "Architecture": "x86_64",
+            "BlockDeviceMappings": [],
+            "ClientToken": "2e091c8b-9c20-41c3-abdd-cd8be9f442ec",
+            "EbsOptimized": false,
+            "EnaSupport": true,
+            "Hypervisor": "xen",
+            "NetworkInterfaces": [
+                {
+                    "Attachment": {
+                        "AttachTime": "2025-03-18T14:25:29+00:00",
+                        "AttachmentId": "eni-attach-054539afc836d8415",
+                        "DeleteOnTermination": true,
+                        "DeviceIndex": 0,
+                        "Status": "attaching",
+                        "NetworkCardIndex": 0
+                    },
+                    "Description": "",
+                    "Groups": [
+                        {
+                            "GroupId": "sg-0c14ecd95a601269b",
+                            "GroupName": "secugrp-i346-devopsteam04"
+                        }
+                    ],
+                    "Ipv6Addresses": [],
+                    "MacAddress": "0a:e9:87:d7:ef:65",
+                    "NetworkInterfaceId": "eni-00f16c354df7eee9b",
+                    "OwnerId": "709024702237",
+                    "PrivateIpAddress": "10.0.4.4",
+                    "PrivateIpAddresses": [
+                        {
+                            "Primary": true,
+                            "PrivateIpAddress": "10.0.4.4"
+                        }
+                    ],
+                    "SourceDestCheck": true,
+                    "Status": "in-use",
+                    "SubnetId": "subnet-02d0c07be4b48422c",
+                    "VpcId": "vpc-0a22d771f16ae549d",
+                    "InterfaceType": "interface",
+                    "Operator": {
+                        "Managed": false
+                    }
+                }
+            ],
+            "RootDeviceName": "/dev/sda1",
+            "RootDeviceType": "ebs",
+            "SecurityGroups": [
+                {
+                    "GroupId": "sg-0c14ecd95a601269b",
+                    "GroupName": "secugrp-i346-devopsteam04"
+                }
+            ],
+            "SourceDestCheck": true,
+            "StateReason": {
+                "Code": "pending",
+                "Message": "pending"
+            },
+            "Tags": [
+                {
+                    "Key": "Name",
+                    "Value": "EC2-DEVOPSTEAM04-WIN-SRV"
+                }
+            ],
+            "VirtualizationType": "hvm",
+            "CpuOptions": {
+                "CoreCount": 1,
+                "ThreadsPerCore": 2
+            },
+            "CapacityReservationSpecification": {
+                "CapacityReservationPreference": "open"
+            },
+            "MetadataOptions": {
+                "State": "pending",
+                "HttpTokens": "required",
+                "HttpPutResponseHopLimit": 2,
+                "HttpEndpoint": "enabled",
+                "HttpProtocolIpv6": "disabled",
+                "InstanceMetadataTags": "disabled"
+            },
+            "EnclaveOptions": {
+                "Enabled": false
+            },
+            "BootMode": "uefi",
+            "PrivateDnsNameOptions": {
+                "HostnameType": "ip-name",
+                "EnableResourceNameDnsARecord": false,
+                "EnableResourceNameDnsAAAARecord": false
+            },
+            "MaintenanceOptions": {
+                "AutoRecovery": "default"
+            },
+            "CurrentInstanceBootMode": "uefi",
+            "Operator": {
+                "Managed": false
+            },
+            "InstanceId": "i-0bf136248db6b25e8",
+            "ImageId": "ami-045114d716addc65d",
+            "State": {
+                "Code": 0,
+                "Name": "pending"
+            },
+            "PrivateDnsName": "ip-10-0-4-4.eu-central-1.compute.internal",
+            "PublicDnsName": "",
+            "StateTransitionReason": "",
+            "KeyName": "KEY-I346-SUB-DEVOPSTEAM04",
+            "AmiLaunchIndex": 0,
+            "ProductCodes": [],
+            "InstanceType": "t3.micro",
+            "LaunchTime": "2025-03-18T14:25:29+00:00",
+            "Placement": {
+                "GroupName": "",
+                "Tenancy": "default",
+                "AvailabilityZone": "eu-central-1c"
+            },
+            "Platform": "windows",
+            "Monitoring": {
+                "State": "disabled"
+            },
+            "SubnetId": "subnet-02d0c07be4b48422c",
+            "VpcId": "vpc-0a22d771f16ae549d",
+            "PrivateIpAddress": "10.0.4.4"
+        }
+    ]
+}
 ```
 
 ## Test EC2 LIN access - INBOUND
@@ -1034,11 +1174,61 @@ aws ec2 run-instances \
 ## Start/Stop/Terminate EC2
 * [Source]()
 ```bash
- 
+Start :
+
+
+Stop :
+aws ec2 stop-instances \
+--instance-ids i-040fccbbbd58e5a36 \
+--profile devopsteam04-i346 \
+--region eu-central-1
+
+Terminate :
+aws ec2 terminate-instances \
+--instance-ids i-040fccbbbd58e5a36 \
+--profile devopsteam04-i346 \
+--region eu-central-1
 ```
 
 ```
 [OUTPUT]
+
+Start :
+
+
+Stop :
+{
+    "StoppingInstances": [
+        {
+            "InstanceId": "i-040fccbbbd58e5a36",
+            "CurrentState": {
+                "Code": 64,
+                "Name": "stopping"
+            },
+            "PreviousState": {
+                "Code": 16,
+                "Name": "running"
+            }
+        }
+    ]
+}
+
+Terminate :
+{
+    "TerminatingInstances": [
+        {
+            "InstanceId": "i-040fccbbbd58e5a36",
+            "CurrentState": {
+                "Code": 48,
+                "Name": "terminated"
+            },
+            "PreviousState": {
+                "Code": 80,
+                "Name": "stopped"
+            }
+        }
+    ]
+}
 ```
 
 ## Test EC2 LIN access - OUTBOUND
