@@ -779,7 +779,7 @@ aws ec2 create-key-pair \
 --key-name KEY-I346-SUB-DEVOPSTEAM04 \
 --key-type rsa \
 --key-format pem \
---tag-specifications ResourceType=key-pair,Tags=[{Key=Name,Value=KEY-I346-SUB-DEVOPSTEAM04}] \
+--tag-specifications 'ResourceType=key-pair,Tags=[{Key=Name,Value=KEY-I346-SUB-DEVOPSTEAM04}]' \
 --region eu-central-1 \
 --profile devopsteam04-i346 \
 --output text > KEY-I346-SUB-DEVOPSTEAM04.pem
@@ -787,19 +787,37 @@ aws ec2 create-key-pair \
 
 ```
 [OUTPUT]
-Parameter validation failed:
-Invalid type for parameter TagSpecifications[0].Tags[0], value: Key=Name, type: <class 'str'>, valid types: <class 'dict'>
-Invalid type for parameter TagSpecifications[1].Tags[0], value: Value=KEY-I346-SUB-DEVOPSTEAM04, type: <class 'str'>, valid types: <class 'dict'>
+None
 ```
 
 ## Create Subnet security group
 * [Source](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ec2/create-security-group.html)
 ```bash
- 
+aws ec2 create-security-group \
+--group-name secugrp-i346-devopsteam04 \
+--description "secugrp-i346-devopsteam04" \
+--vpc-id vpc-0a22d771f16ae549d \
+--tag-specifications 'ResourceType=security-group,Tags=[{Key="Name",Value="SG-DEVOPSTEAM04-SUBNET"}]' \
+--region eu-central-1 \
+--profile devopsteam04-i346 \
+--output table
+
 ```
 
 ```
 [OUTPUT]
+---------------------------------------------------------------------------------------------------
+|                                       CreateSecurityGroup                                       |
++------------------+------------------------------------------------------------------------------+
+|  GroupId         |  sg-0c14ecd95a601269b                                                        |
+|  SecurityGroupArn|  arn:aws:ec2:eu-central-1:709024702237:security-group/sg-0c14ecd95a601269b   |
++------------------+------------------------------------------------------------------------------+
+||                                             Tags                                              ||
+|+-----------------------+-----------------------------------------------------------------------+|
+||  Key                  |  Name                                                                 ||
+||  Value                |  SG-DEVOPSTEAM04-SUBNET                                               ||
+|+-----------------------+-----------------------------------------------------------------------+|
+
 ```
 
 ## Deploy instance EC2 Linux
