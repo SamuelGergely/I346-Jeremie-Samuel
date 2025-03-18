@@ -14,8 +14,8 @@
   aws ec2 <la commande> --profile devopsteam04
   ```
 
-
-![alt text](<../Capture_d'ecran_2025-03-18_135348.jpg>)
+## Schéma de l'infrastructure avec Eraser
+![alt text](<Capture d’écran 2025-03-18 135348.jpg>)
 
 ## Afficher le subnet de l'équipe 4 une région sous forme de tableau
 ```bash
@@ -770,24 +770,54 @@ subnet-007585998051b2c4a
 [OUTPUT]
 ```
 
+# Deploy Instance
+
+## Create and upload private key pairs
+* [Source](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ec2/create-key-pair.html)
+```bash
+aws ec2 create-key-pair \
+--key-name KEY-I346-SUB-DEVOPSTEAM04 \
+--key-type rsa \
+--key-format pem \
+--tag-specifications 'ResourceType=key-pair,Tags=[{Key=Name,Value=KEY-I346-SUB-DEVOPSTEAM04}]' \
+--region eu-central-1 \
+--profile devopsteam04-i346 \
+--output text > KEY-I346-SUB-DEVOPSTEAM04.pem
+```
+
+```
+[OUTPUT]
+None
+```
+
 ## Create Subnet security group
 * [Source](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ec2/create-security-group.html)
 ```bash
- 
+aws ec2 create-security-group \
+--group-name secugrp-i346-devopsteam04 \
+--description "secugrp-i346-devopsteam04" \
+--vpc-id vpc-0a22d771f16ae549d \
+--tag-specifications 'ResourceType=security-group,Tags=[{Key="Name",Value="SG-DEVOPSTEAM04-SUBNET"}]' \
+--region eu-central-1 \
+--profile devopsteam04-i346 \
+--output table
+
 ```
 
 ```
 [OUTPUT]
-```
+---------------------------------------------------------------------------------------------------
+|                                       CreateSecurityGroup                                       |
++------------------+------------------------------------------------------------------------------+
+|  GroupId         |  sg-0c14ecd95a601269b                                                        |
+|  SecurityGroupArn|  arn:aws:ec2:eu-central-1:709024702237:security-group/sg-0c14ecd95a601269b   |
++------------------+------------------------------------------------------------------------------+
+||                                             Tags                                              ||
+|+-----------------------+-----------------------------------------------------------------------+|
+||  Key                  |  Name                                                                 ||
+||  Value                |  SG-DEVOPSTEAM04-SUBNET                                               ||
+|+-----------------------+-----------------------------------------------------------------------+|
 
-## Create and upload private key pairs
-* [Source]()
-```bash
- 
-```
-
-```
-[OUTPUT]
 ```
 
 ## Deploy instance EC2 Linux
