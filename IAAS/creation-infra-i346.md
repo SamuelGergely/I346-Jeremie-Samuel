@@ -1,4 +1,4 @@
-# Creation infra
+# Creation infrastructure
 
 ## Installation et configuration du CLI
 
@@ -854,9 +854,19 @@ aws ec2 authorize-security-group-ingress \
 ```
 
 ## Deploy instance EC2 Linux
-* [Source]()
+* [Source](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ec2/run-instances.html)
 ```bash
- 
+aws ec2 run-instances \
+--image-id ami-0584590e5f0e97daa \
+--count 1 \
+--instance-type t2.micro \
+--key-name KEY-I346-SUB-DEVOPSTEAM04 \
+--security-group-ids sg-0c14ecd95a601269b \
+--subnet-id subnet-02d0c07be4b48422c \
+--tag-specifications 'ResourceType=instance,Tags=[{Key=Name,Value=EC2-DEVOPSTEAM04-LIN-SRV}]' \
+--region eu-central-1 \
+--profile devopsteam04-i346
+
 ```
 
 ```
