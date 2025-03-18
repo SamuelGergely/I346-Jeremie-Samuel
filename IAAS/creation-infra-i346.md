@@ -823,11 +823,34 @@ aws ec2 create-security-group \
 ## Config SSH access (Tunnel to DMZ)
 * [Source](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ec2/authorize-security-group-ingress.html)
 ```bash
- 
+aws ec2 authorize-security-group-ingress \
+--group-id sg-0c14ecd95a601269b \
+--ip-permissions "IpProtocol=tcp,FromPort=22,ToPort=22,IpRanges=[{CidrIp=10.0.0.0/28,Description=SSH-FROM-DMZ}]" \
+--region eu-central-1 \
+--profile devopsteam04-i346 \
+--output table
 ```
 
 ```
 [OUTPUT]
+---------------------------------------------------------------------------------------------------------------
+|                                        AuthorizeSecurityGroupIngress                                        |
++------------------------------------------------------------+------------------------------------------------+
+|  Return                                                    |  True                                          |
++------------------------------------------------------------+------------------------------------------------+
+||                                            SecurityGroupRules                                             ||
+|+----------------------+------------------------------------------------------------------------------------+|
+||  CidrIpv4            |  10.0.0.0/28                                                                       ||
+||  Description         |  SSH-FROM-DMZ                                                                      ||
+||  FromPort            |  22                                                                                ||
+||  GroupId             |  sg-0c14ecd95a601269b                                                              ||
+||  GroupOwnerId        |  709024702237                                                                      ||
+||  IpProtocol          |  tcp                                                                               ||
+||  IsEgress            |  False                                                                             ||
+||  SecurityGroupRuleArn|  arn:aws:ec2:eu-central-1:709024702237:security-group-rule/sgr-0a9dc27cb7bb85acb   ||
+||  SecurityGroupRuleId |  sgr-0a9dc27cb7bb85acb                                                             ||
+||  ToPort              |  22                                                                                ||
+|+----------------------+------------------------------------------------------------------------------------+|
 ```
 
 ## Deploy instance EC2 Linux
