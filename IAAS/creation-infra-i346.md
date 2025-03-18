@@ -820,6 +820,16 @@ aws ec2 create-security-group \
 
 ```
 
+## Config SSH access (Tunnel to DMZ)
+* [Source](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ec2/authorize-security-group-ingress.html)
+```bash
+ 
+```
+
+```
+[OUTPUT]
+```
+
 ## Deploy instance EC2 Linux
 * [Source]()
 ```bash
@@ -831,16 +841,6 @@ aws ec2 create-security-group \
 ```
 
 ## Deploy instance EC2 WIN
-* [Source]()
-```bash
- 
-```
-
-```
-[OUTPUT]
-```
-
-## Config SSH access (Tunnel to DMZ)
 * [Source]()
 ```bash
  
