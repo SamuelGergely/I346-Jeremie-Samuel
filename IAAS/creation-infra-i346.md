@@ -744,7 +744,7 @@ aws ec2 associate-route-table \
 ## Create route
 * [Source](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ec2/create-route.html)
 ```bash
-$ aws ec2 create-route \
+aws ec2 create-route \
 --route-table-id rtb-0e9c1c8c5262297e0 \
 --destination-cidr-block 0.0.0.0/0 \
 --network-interface-id eni-0e382f5c175b09ce2 \
@@ -763,7 +763,7 @@ $ aws ec2 create-route \
 ## RouteTable Association DMZ
 * [Source]()
 ```bash
- 
+subnet-007585998051b2c4a
 ```
 
 ```
