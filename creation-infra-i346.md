@@ -14,6 +14,9 @@
   aws ec2 <la commande> --profile devopsteam04
   ```
 
+
+![alt text](<Capture d’écran 2025-03-18 135348.jpg>)
+
 ## Afficher le subnet de l'équipe 4 une région sous forme de tableau
 ```bash
 aws ec2 describe-vpcs \
@@ -764,7 +767,7 @@ None
 ```
 
 ## Create Subnet security group
-* [Source]()
+* [Source](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ec2/create-security-group.html)
 ```bash
  
 ```
