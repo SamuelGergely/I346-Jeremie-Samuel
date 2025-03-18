@@ -1006,15 +1006,15 @@ aws ec2 run-instances \
 * [Source]()
 ```bash
 aws ec2 run-instances \
-  --image-id ami-045114d716addc65d \
-  --instance-type t3.micro \
-  --key-name KEY-I346-SUB-DEVOPSTEAM04 \
-  --security-group-ids sg-0c14ecd95a601269b \
-  --subnet-id subnet-02d0c07be4b48422c \
-  --tag-specifications 'ResourceType=instance,Tags=[{Key=Name,Value=EC2-DEVOPSTEAM04-WIN-SRV}]' \
-  --count 1 \
-  --profile devopsteam04-i346 \
-  --region eu-central-1
+--image-id ami-045114d716addc65d \
+--instance-type t3.micro \
+--key-name KEY-I346-SUB-DEVOPSTEAM04 \
+--security-group-ids sg-0c14ecd95a601269b \
+--subnet-id subnet-02d0c07be4b48422c \
+--tag-specifications 'ResourceType=instance,Tags=[{Key=Name,Value=EC2-DEVOPSTEAM04-WIN-SRV}]' \
+--count 1 \
+--profile devopsteam04-i346 \
+--region eu-central-1
 ```
 
 ```
@@ -1175,11 +1175,6 @@ aws ec2 run-instances \
 ## Start/Stop/Terminate EC2
 * [Source]()
 ```bash
-<<<<<<< HEAD
-aws ec2 stop-instances --instance-ids i-0c15a4e9b1042e12d --profile devopsteam04-i346 --region eu-central-1
-aws ec2 terminate-instances --instance-ids i-0c15a4e9b1042e12d --profile devopsteam04-i346 --region eu-central-1
-
-=======
 Start :
 
 
@@ -1194,7 +1189,6 @@ aws ec2 terminate-instances \
 --instance-ids i-040fccbbbd58e5a36 \
 --profile devopsteam04-i346 \
 --region eu-central-1
->>>>>>> 6cb6d16dd23f4af4e1c0b44b7485b51da18bfd56
 ```
 
 ```
