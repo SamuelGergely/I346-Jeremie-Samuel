@@ -820,7 +820,7 @@ aws ec2 create-security-group \
 
 ```
 
-## Config SSH access (Tunnel to DMZ)
+## Authorize Security Group - Ingress
 * [Source](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ec2/authorize-security-group-ingress.html)
 ```bash
 aws ec2 authorize-security-group-ingress \
