@@ -664,17 +664,33 @@ aws ec2 create-route-table \
 ```
 [OUTPUT]
 
-An error occurred (UnauthorizedOperation) when calling the CreateRouteTable operation: You are not authorized to perform this operation. User: arn:aws:iam::709024702237:user/devopsteam04-i346 is not authorized to perform: ec2:CreateRouteTable on resource: arn:aws:ec2:eu-
-central-1:709024702237:vpc/vpc-0a22d771f16ae549d because no identity-based policy allows the ec2:CreateRouteTable action. Encoded authorization failure message: Hd4HnH3GWsPXfm99sxG6DKQZvaMg_b3U9SkVEBnAnZvkvnlvI0FoZALZO-_dQIhyUf3KmKdLmOLrLUhz6gnABu2GBJQm5gKVrwKF4BPypGZMIZ
-t5OgMMHRG6kfVHHaTUFCoGGvqtbtqobHIPMqxtElTkHQSYw0AYBRugkhwbFCQSNpktlAtqC97_hYKjDY6995s3N-PW_tonaaUe3l4bqtgjNs0ZfztDdXkKAuqKfxmYny8cvph-gzPvmF1pLQS1QdTfPF5WlI9p5e61aatNVEUjkx57UU_VjQQjgfFcR6kKUT8K0dXGujtR-CLSmosTjBY7-y6fbZigxLgs3wgRceN5ySRWPB2dPZg1HuRahr9tbGpACbyO8z9Hxq5v1
-X2p4I-ziOdVtdcSKsvFkSVLQ0u1Ga0fPQBfEY2tadbIZs6NUDHuvfSAHPKYQFD9-g_I4pIYQ2ZM69x98_523nKMOWhLVetnIocYCOYzwOk9Z2SO1brndfx6obyWuqJBkEPmNJ1FHxWW-SZ-HrDsWE_d2nKlPuHCZYYUQB3UapAPfig90BhdzRFjYSMAfyg3TNvio-YOPlX_Qrav1i0o0Q2bVEXDPEqkSGgM_Lm-vOiH
+{
+    "RouteTable": {
+        "Associations": [],
+        "PropagatingVgws": [],
+        "RouteTableId": "rtb-0e9c1c8c5262297e0",
+        "Routes": [
+            {
+                "DestinationCidrBlock": "10.0.0.0/16",
+                "GatewayId": "local",
+                "Origin": "CreateRouteTable",
+                "State": "active"
+            }
+        ],
+        "Tags": [],
+        "VpcId": "vpc-0a22d771f16ae549d",
+        "OwnerId": "709024702237"
+    },
+    "ClientToken": "bfe7fbb0-8a59-43ba-991e-387bb84c2f45"
+}
+
 ```
 
 ## Name Route Table
 * [Source](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/mq/create-tags.html)
 ```bash
 aws ec2 create-tags \
---resources MyRessource \
+--resources rtb-0e9c1c8c5262297e0 \
 --tags Key=Name,Value="private-rte-table-devopsteam04-i346" \
 --profile devopsteam04-i346 \
 --region eu-central-1
@@ -705,15 +721,18 @@ None
 * [Source](https://awscli.amazonaws.com/v2/documentation/api/2.7.25/reference/ec2/associate-route-table.html)
 ```bash
 aws ec2 associate-route-table \
---route-table-id MyRteTable \
---subnet-id MySubnet
+  --route-table-id rtb-0e9c1c8c5262297e0 \
+  --subnet-id subnet-02d0c07be4b48422c
 ```
 
-```bash
+```
 [Output]
 
 {
-    "AssociationId": "MyAssociation"
+    "AssociationId": "rtbassoc-00fba39d410526628",
+    "AssociationState": {
+        "State": "associated"
+    }
 }
 ```
 
