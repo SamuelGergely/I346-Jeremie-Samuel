@@ -1202,34 +1202,108 @@ Terminate :
 }
 ```
 
-## Test EC2 LIN access - INBOUND
-* [Source]()
+## Test SSH DMZ Access
 ```bash
- 
+ssh devopsteam04@52.59.181.213 \
+-i KEY-I346-DMZ-DEVOPSTEAM04.pem
 ```
 
 ```
 [OUTPUT]
+
+The authenticity of host '52.59.181.213 (52.59.181.213)' can't be established.
+ED25519 key fingerprint is SHA256:WuBrwzur3OxFeol6sLW9avIhbS/ET8W1TIIjeUMKFVE.
+This key is not known by any other names.
+Are you sure you want to continue connecting (yes/no/[fingerprint])? yes
+Warning: Permanently added '52.59.181.213' (ED25519) to the list of known hosts.
+Linux ip-10-0-0-10 6.1.0-31-cloud-amd64 #1 SMP PREEMPT_DYNAMIC Debian 6.1.128-1 (2025-02-07) x86_64
+
+The programs included with the Debian GNU/Linux system are free software;
+the exact distribution terms for each program are described in the
+individual files in /usr/share/doc/*/copyright.
+
+Debian GNU/Linux comes with ABSOLUTELY NO WARRANTY, to the extent
+permitted by applicable law.
+Last login: Tue Mar 18 17:56:12 2025 from 188.155.68.9
+devopsteam04@ip-10-0-0-10:~$ exit
+logout
+Connection to 52.59.181.213 closed.
+```
+
+## Test SSH DMZ avec Tunnel Access
+```bash
+ssh devopsteam04@52.59.181.213 -i KEY-I346-DMZ-DEVOPSTEAM04.pem -L 23:10.0.4.13:22 -L 3399:10.0.4.4:3389
+```
+
+```
+[OUTPUT]
+
+Linux ip-10-0-0-10 6.1.0-31-cloud-amd64 #1 SMP PREEMPT_DYNAMIC Debian 6.1.128-1 (2025-02-07) x86_64
+
+The programs included with the Debian GNU/Linux system are free software;
+the exact distribution terms for each program are described in the
+individual files in /usr/share/doc/*/copyright.
+
+Debian GNU/Linux comes with ABSOLUTELY NO WARRANTY, to the extent
+permitted by applicable law.
+Last login: Wed Mar 19 11:28:01 2025 from 193.5.240.9
+```
+
+## Test EC2 LIN access - INBOUND
+* [Source]()
+```bash
+ssh admin@localhost -p 23 -i KEY-I346-SUB-DEVOPSTEAM04.pem
+```
+
+```
+[OUTPUT]
+
+ ssh admin@localhost -p 23 -i KEY-I346-SUB-DEVOPSTEAM04.pem
+Linux ip-10-0-4-13 6.1.0-23-cloud-amd64 #1 SMP PREEMPT_DYNAMIC Debian 6.1.99-1 (2024-07-15) x86_64
+
+The programs included with the Debian GNU/Linux system are free software;
+the exact distribution terms for each program are described in the
+individual files in /usr/share/doc/*/copyright.
+
+Debian GNU/Linux comes with ABSOLUTELY NO WARRANTY, to the extent
+permitted by applicable law.
 ```
 
 ## Test EC2 WIN access - INBOUND
 * [Source]()
 ```bash
- 
+aws ec2 get-password-data \
+--instance-id  i-0bf136248db6b25e8 \
+--priv-launch-key KEY-I346-SUB-DEVOPSTEAM04.pem \
+--region eu-central-1 \
+--profile devopsteam04-i346
 ```
 
 ```
 [OUTPUT]
+
+{
+    "InstanceId": "i-0bf136248db6b25e8",
+    "Timestamp": "2025-03-18T14:33:07+00:00",
+    "PasswordData": "C7q8vNv?(1woYH&264JsYgx)P8(1I50H"
+}
 ```
 
 ## Test EC2 LIN access - OUTBOUND
 * [Source]()
 ```bash
- 
+# Ping Google
+admin@ip-10-0-4-13:~$ ping 8.8.8.8
 ```
 
 ```
 [OUTPUT]
+
+PING 8.8.8.8 (8.8.8.8) 56(84) bytes of data.
+64 bytes from 8.8.8.8: icmp_seq=1 ttl=57 time=1.74 ms
+64 bytes from 8.8.8.8: icmp_seq=2 ttl=57 time=1.61 ms
+64 bytes from 8.8.8.8: icmp_seq=3 ttl=57 time=1.65 ms
+64 bytes from 8.8.8.8: icmp_seq=4 ttl=57 time=1.46 ms
 ```
 
 ## Test EC2 WIN access - OUTBOUND
