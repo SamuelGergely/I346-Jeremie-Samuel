@@ -816,7 +816,7 @@ aws ec2 create-security-group \
 aws ec2 authorize-security-group-ingress \
 --group-id sg-0c14ecd95a601269b \
 --ip-permissions "IpProtocol=tcp,FromPort=22,ToPort=22,IpRanges=[{CidrIp=10.0.0.0/28,Description=SSH-FROM-DMZ}]" \
---region eu-central-1 \
+--region eu-central-1 
 --profile devopsteam04-i346 \
 --output table
 ```
@@ -1309,11 +1309,22 @@ PING 8.8.8.8 (8.8.8.8) 56(84) bytes of data.
 ## Test EC2 WIN access - OUTBOUND
 * [Source]()
 ```bash
- 
+ping 8.8.8.8
 ```
 
 ```
 [OUTPUT]
+
+Pinging 8.8.8.8 with 32 bytes of data:
+Reply from 8.8.8.8: bytes=32 time=2ms TTL=57
+Reply from 8.8.8.8: bytes=32 time=2ms TTL=57
+Reply from 8.8.8.8: bytes=32 time=1ms TTL=57
+Reply from 8.8.8.8: bytes=32 time=2ms TTL=57
+
+Ping statistics for 8.8.8.8:
+    Packets: Sent = 4, Received = 4, Lost = 0 (0% loss),
+Approximate round trip times in milli-seconds:
+    Minimum = 1ms, Maximum = 2ms, Average = 1ms
 ```
 
 ## Clean Subnet/Key/Instance/Security Group
