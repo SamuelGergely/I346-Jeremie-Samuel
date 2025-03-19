@@ -1,4 +1,4 @@
-# Creation infrastructure
+# Deploy infrastructure
 
 ## Installation et configuration du CLI
 
