@@ -1146,7 +1146,10 @@ aws ec2 run-instances \
 * [Source]()
 ```bash
 Start :
-
+aws ec2 start-instances \
+--instance-ids id \
+--profile devopsteam04-i346 \
+--region eu-central-1
 
 #Stop :
 aws ec2 stop-instances \
