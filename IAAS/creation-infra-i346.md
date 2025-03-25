@@ -1278,6 +1278,7 @@ permitted by applicable law.
 ## Test EC2 WIN access - INBOUND
 * [Source]()
 ```bash
+# Récupérer le mot de passe
 aws ec2 get-password-data \
 --instance-id  i-0bf136248db6b25e8 \
 --priv-launch-key KEY-I346-SUB-DEVOPSTEAM04.pem \
@@ -1287,12 +1288,19 @@ aws ec2 get-password-data \
 
 ```
 [OUTPUT]
-
 {
     "InstanceId": "i-0bf136248db6b25e8",
     "Timestamp": "2025-03-18T14:33:07+00:00",
     "PasswordData": "C7q8vNv?(1woYH&264JsYgx)P8(1I50H"
 }
+```
+
+```RDP
+#Computer
+localhost:3399
+
+#User
+administrator
 ```
 
 ## Test EC2 LIN access - OUTBOUND
