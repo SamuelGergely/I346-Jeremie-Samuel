@@ -1142,11 +1142,11 @@ aws ec2 run-instances \
 }
 ```
 
-## Start/Stop/Terminate EC2
+## Start/Stop EC2
 * [Source]()
 ```bash
 #Start both :
-aws ec2 stop-instances \
+aws ec2 start-instances \
 --instance-ids i-094b7d04792679271 i-0bf136248db6b25e8 \
 --profile devopsteam04-i346 \
 --region eu-central-1
@@ -1262,7 +1262,7 @@ aws ec2 get-password-data \
 {
     "InstanceId": "i-0bf136248db6b25e8",
     "Timestamp": "2025-03-18T14:33:07+00:00",
-    "PasswordData": "C7q8vNv?(1woYH&264JsYgx)P8(1I50H"
+    "PasswordData": "*********"
 }
 ```
 
