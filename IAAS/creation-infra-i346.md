@@ -1323,13 +1323,13 @@ aws ec2 terminate-instances \
 
 #Delete security groups:
 aws ec2 delete-security-group \
---group-name secugrp-i346-devopsteam04
+--group-name secugrp-i346-devopsteam04 \
 --profile devopsteam04-i346 \
 --region eu-central-1
 
 #Delete subnet
 aws ec2 delete-subnet \
---subnet-id subnet-02d0c07be4b48422c
+--subnet-id subnet-02d0c07be4b48422c \
 --profile devopsteam04-i346 \
 --region eu-central-1
 
