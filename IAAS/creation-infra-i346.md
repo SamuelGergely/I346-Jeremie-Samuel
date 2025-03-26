@@ -1277,8 +1277,8 @@ administrator
 ## Test EC2 LIN access - OUTBOUND
 * [Source]()
 ```bash
-# Ping Google
-admin@ip-10-0-4-13:~$ ping 8.8.8.8
+# Ping Google (from machine)
+ping 8.8.8.8
 ```
 
 ```
@@ -1293,7 +1293,7 @@ PING 8.8.8.8 (8.8.8.8) 56(84) bytes of data.
 
 ## Test EC2 WIN access - OUTBOUND
 * [Source]()
-```bash
+```cmd
 ping 8.8.8.8
 ```
 
