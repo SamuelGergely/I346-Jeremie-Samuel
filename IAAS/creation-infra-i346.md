@@ -1157,22 +1157,10 @@ aws ec2 stop-instances \
 --instance-ids i-094b7d04792679271 i-0bf136248db6b25e8 \
 --profile devopsteam04-i346 \
 --region eu-central-1
-
-
-#Terminate :
-aws ec2 stop-instances \
---instance-ids i-094b7d04792679271 i-0bf136248db6b25e8 \
---profile devopsteam04-i346 \
---region eu-central-1
-
 ```
 
 ```
 [OUTPUT]
-
-Start :
-
-
 Stop :
 {
     "StoppingInstances": [
@@ -1185,23 +1173,6 @@ Stop :
             "PreviousState": {
                 "Code": 16,
                 "Name": "running"
-            }
-        }
-    ]
-}
-
-Terminate :
-{
-    "TerminatingInstances": [
-        {
-            "InstanceId": "i-040fccbbbd58e5a36",
-            "CurrentState": {
-                "Code": 48,
-                "Name": "terminated"
-            },
-            "PreviousState": {
-                "Code": 80,
-                "Name": "stopped"
             }
         }
     ]
@@ -1341,10 +1312,29 @@ Approximate round trip times in milli-seconds:
     Minimum = 1ms, Maximum = 2ms, Average = 1ms
 ```
 
-## Clean Subnet/Key/Instance/Security Group
+## Clean Instances, Security group, Subnet, and key
 * [Source]()
 ```bash
- 
+#Terminate instances:
+aws ec2 terminate-instances \
+--instance-ids i-094b7d04792679271 i-0bf136248db6b25e8 \
+--profile devopsteam04-i346 \
+--region eu-central-1
+
+#Delete security groups:
+aws ec2 delete-security-group \
+--group-name secugrp-i346-devopsteam04
+--profile devopsteam04-i346 \
+--region eu-central-1
+
+#Delete subnet
+aws ec2 delete-subnet \
+--subnet-id subnet-02d0c07be4b48422c
+--profile devopsteam04-i346 \
+--region eu-central-1
+
+#Delete keys
+# I guess delete them from folder or smth idk
 ```
 
 ```
